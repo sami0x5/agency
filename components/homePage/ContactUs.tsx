@@ -9,9 +9,9 @@ import MyApp from '../MeetingForm';
 const ContactUs = () => {
   const [isMessage, setIsMessage] = useState(true);
   return (
-    <section className="z-10 relative rounded-t-[3rem] bg-[#d6dce1] flex flex-col justify-center items-center text-black p-8">
+    <section className="z-10 relative rounded-t-[3rem] bg-[#d6dce1] flex flex-col justify-center items-center text-black p-8 overflow-clip">
       {/* navigation */}
-      <div className="mt-20 flex gap-2 bg-gradient-to-r from-[#000428] to-[#004e92] p-1 rounded-full">
+      <div className="  md:mt-5 lg:mt-20 flex gap-2 bg-gradient-to-r from-[#000428] to-[#004e92] p-1 rounded-full ">
         <button
           onClick={() => {
             setIsMessage(true);
