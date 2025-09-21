@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import { v4 as uuid } from 'uuid';
 import cardBg from '@/public/card-bg.jpg';
-import { ArrowRight } from 'lucide-react';
+import ArrowButton from '../ui/ArrowButton';
+
 const faqs: {
   question: string;
   answer: string;
@@ -64,12 +65,7 @@ const Faqs = () => {
               <h3 className="text-2xl font-semibold">
                 Where can I find your pricing plans?
               </h3>
-              <button className="group cursor-pointer slide-anime px-5 py-3 rounded-full w-[180px] bg-amber-300 text-black flex justify-around items-center font-semibold mt-4 ">
-                View Pricing
-                <div className="group-hover:translate-x-2 transition-all">
-                  <ArrowRight />
-                </div>
-              </button>
+              <ArrowButton>View Pricing</ArrowButton>
             </div>
           </div>
         </div>
