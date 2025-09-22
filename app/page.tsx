@@ -13,7 +13,7 @@ export default function Home() {
       <Services />
       <Projects />
       <Faqs />
-      <ContactUs />
+      <ContactUs className="rounded-t-[3rem]" />
     </>
   );
 }
