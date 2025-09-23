@@ -11,7 +11,7 @@ export default function Home() {
       <Hero />
       <LogoTicker />
       <Services />
-      <Projects />
+      <Projects pillTitle="Our Latest Work" />
       <Faqs />
       <ContactUs className="rounded-t-[3rem]" />
     </>

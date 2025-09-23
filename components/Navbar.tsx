@@ -3,10 +3,10 @@ import Logo from './Logo';
 import SlideArrowButton from './Buttons/SlideArrowButton';
 
 const Navbar = () => {
-  const navLinks = [
+  const navLinks: { title: string; link: string; id: string }[] = [
     { title: 'Services', link: '/services', id: 'fdddfa44' },
     { title: 'Work', link: '/work', id: 'fdf3543fdafa' },
-
+    { title: 'FAQs', link: '/#faqs', id: 'dfk3i343434' },
     { title: 'Pricing', link: '/pricing', id: 'fdf354gf3gr3a' },
   ];
   return (
@@ -18,14 +18,6 @@ const Navbar = () => {
       {/* navbar */}
       <nav className="hidden lg:block">
         <ul className="flex gap-4 text-lg ">
-          <li>
-            <Link
-              className="relative after:absolute after:-bottom-0.5   after:left-0 after:h-[1.5px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-white/75 
-       after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100"
-              href="/">
-              Home
-            </Link>
-          </li>
           {navLinks.map(navLink => (
             <li key={navLink.id}>
               <Link

@@ -26,11 +26,14 @@ const services = [
   },
 ];
 
-const Services = () => {
+const Services = ({ className }: { className?: string }) => {
   return (
     <section className="mt-12 lg:p-12  overflow-clip relative p-6 md:p-0 ">
-      <SectionHeader title="Our Services" className="z-50 text-lg" />
-      <div className="relative md:grid md:grid-cols-2  ">
+      <SectionHeader
+        title="Our Services"
+        className={`z-50 text-lg ${className}`}
+      />
+      <div className="relative md:grid md:grid-cols-2 -mt-30  ">
         <div className=" relative flex flex-col gap-20 md:mt-40 mt-10 z-50 md:pl-6 lg:pl-0">
           <div className="h-20"></div>
           {services.map(service => (

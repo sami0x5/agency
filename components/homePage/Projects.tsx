@@ -29,10 +29,16 @@ const allData = [
   },
 ];
 
-const Projects = () => {
+const Projects = ({
+  pillTitle,
+  className,
+}: {
+  pillTitle: string;
+  className?: string;
+}) => {
   return (
     <section className="mt-12 lg:p-12  overflow-clip relative p-6">
-      <SectionHeader title="Our latest work" className="text-lg" />
+      <SectionHeader title={pillTitle} className={`text-lg ${className}`} />
       <div className="mt-12 grid grid-cols-1 md:grid-cols-2  gap-6 ">
         {allData.map((item, index) => (
           <Project key={`${item.name}${index}`} item={item} />
