@@ -4,6 +4,7 @@ import { CircleAlert, Check } from 'lucide-react';
 import dotBg from '@/public/dot-bg.jpg';
 import Link from 'next/link';
 import SeoPlan from '@/components/ui/SeoPlan';
+import PriceComparison from '@/components/PriceComparison';
 
 const pricingTiers: {
   serviceName: string;
@@ -70,7 +71,7 @@ const pricingTiers: {
 const page = () => {
   return (
     <main>
-      <section className="mt-12 lg:p-12  overflow-clip relative p-6">
+      <section className="mt-12  p-6 lg:p-12  relative overflow-clip ">
         <SectionHeader title="Pricing" className="text-lg mt-6 lg:mt-0" />
         <h1
           className="p-2 text-5xl text-center  tracking-tight  font-semibold  bg-gradient-to-r from-gray-400/75 via-white/80 to-gray-400 bg-clip-text text-transparent mt-5"
@@ -138,6 +139,8 @@ const page = () => {
 
           <SeoPlan />
         </div>
+        {/* price comparison */}
+        <PriceComparison />
       </section>
     </main>
   );

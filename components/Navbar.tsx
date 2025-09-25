@@ -13,7 +13,9 @@ const Navbar = () => {
     <header className=" fixed top-0 left-0 right-0 flex  items-center justify-between py-4 px-8 text-white/75 w-full h-20 z-[999] bg-gray-950/10 backdrop-blur-lg  ">
       {/* logo */}
       <div>
-        <Logo />
+        <Link href="/">
+          <Logo />
+        </Link>
       </div>
       {/* navbar */}
       <nav className="hidden lg:block">
