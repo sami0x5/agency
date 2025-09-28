@@ -8,7 +8,6 @@ import Giant from '../../public/companyLogos/giant-bicycles-logo-svgrepo-com.png
 import TuneIn from '../../public/companyLogos/tunein-logo-svgrepo-com.png';
 import Oracle from '../../public/companyLogos/oracle-6-logo-svgrepo-com.png';
 import { motion } from 'motion/react';
-import SectionHeader from '../SectionHeader';
 
 const logos = [
   { id: 1, src: Adidas, alt: 'Adidas Logo' },
@@ -42,10 +41,9 @@ const logos = [
 const LogoTicker = () => {
   return (
     <section className="overflow-hidden px-12 py-6 md:py-12">
-      <SectionHeader
-        title="We follow proven methods"
-        className="mt-7 md:mt-5 lg:mt-0"
-      />
+      <p className="mt-7 md:mt-5 lg:mt-0 text-center text-xl text-white/60">
+        We follow proven methods
+      </p>
       <div className="flex overflow-hidden mask-[linear-gradient(to_right,transparent,black_20%,black_80%,transparent)] mt-2 lg:mt-5">
         <motion.div
           initial={{ x: '-50%' }}

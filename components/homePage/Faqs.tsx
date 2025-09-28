@@ -44,7 +44,9 @@ const Faqs = () => {
   const [activeIndex, setActiveIndex] = useState<null | number>(null);
   return (
     <section className="mt-6 p-6  lg:p-12  overflow-clip  sticky -top-80 ">
-      <h2 className="text-5xl text-center  tracking-tight  font-semibold  bg-gradient-to-r from-gray-400/75 via-white/80 to-gray-400 bg-clip-text text-transparent">
+      <h2
+        id="faqs"
+        className="text-5xl text-center  tracking-tight  font-semibold  bg-gradient-to-r from-gray-400/75 via-white/80 to-gray-400 bg-clip-text text-transparent">
         Frequently Asked Questions
       </h2>
 

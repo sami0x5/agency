@@ -23,7 +23,7 @@ const allData = [
   {
     name: 'Landing page',
     img: landingPageImg,
-    link: 'https://ai-startup-landing-page-beta.vercel.app/',
+    link: 'https://landing-page-demo-two.vercel.app/',
     desc: ' A landing page for startup, showcasing their services and features.',
     tags: ['Landing Page'],
   },

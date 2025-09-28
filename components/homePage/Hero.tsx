@@ -1,5 +1,5 @@
 import React from 'react';
-import Prism from './Prism';
+
 import { ArrowRight } from 'lucide-react';
 
 import Link from 'next/link';
@@ -7,6 +7,7 @@ import ButtonHoverDown from '../Buttons/ButtonHoverDown';
 import AnalyticsAnim from '../Animations/AnalyticsAnim';
 import MoreSales from '../svgComponents/MoreSales';
 import Image from 'next/image';
+import { GridBackgroundDemo } from '../ui/GridBgDemo';
 
 const NotifyOrdersData = [
   {
@@ -32,17 +33,8 @@ const NotifyOrdersData = [
 const Hero = () => {
   return (
     <section className="overflow-clip mask-[linear-gradient(to_bottom,black,black_80%,transparent)] w-full h-[80vh] lg:h-[110vh] relative">
-      {/* <Prism
-        animationType="rotate"
-        timeScale={0.5}
-        height={3.5}
-        baseWidth={5.5}
-        scale={3.6}
-        hueShift={0}
-        colorFrequency={1}
-        noise={0}
-        glow={1}
-      /> */}
+      {/* image bg */}
+      <GridBackgroundDemo />
       {/* page content */}
       <div className="absolute inset-0 flex items-center flex-col top-36  ">
         <h1 className="text-4xl lg:text-7xl md:text-6xl text-center  max-w-5xl tracking-tight leading-tight font-semibold stroke-1 drop-shadow-xl drop-shadow-gray-950 bg-gradient-to-r from-gray-400/75 via-white/80 to-gray-400 bg-clip-text text-transparent z-20">
