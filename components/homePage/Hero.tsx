@@ -1,34 +1,9 @@
 import React from 'react';
-
 import { ArrowRight } from 'lucide-react';
-
 import Link from 'next/link';
 import ButtonHoverDown from '../Buttons/ButtonHoverDown';
-import AnalyticsAnim from '../Animations/AnalyticsAnim';
-import MoreSales from '../svgComponents/MoreSales';
-import Image from 'next/image';
 import { GridBackgroundDemo } from '../ui/GridBgDemo';
-
-const NotifyOrdersData = [
-  {
-    id: 'dkajfkjkdj333gfe',
-    imgUrl: 'none',
-    message: 'Mivay order a new items that worth $20',
-    time: '1h ago',
-  },
-  {
-    id: 'dkajfkjkdjfe',
-    imgUrl: 'none',
-    message: 'Imran canceled the order',
-    time: '30m ago',
-  },
-  {
-    id: 'dkajfkjfdeekdjfe',
-    imgUrl: 'none',
-    message: 'Sami Placed a new order',
-    time: '5m ago',
-  },
-];
+import HeroAnimated from '../ui/HeroAnimated';
 
 const Hero = () => {
   return (
@@ -48,7 +23,7 @@ const Hero = () => {
         {/* cta button */}
         <div className="mt-10 flex gap-8 z-20 items-center">
           <div>
-            <ButtonHoverDown />
+            <ButtonHoverDown url="/contact" />
           </div>
           <Link
             className="relative after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-full after:origin-bottom-right after:scale-x-0 dark:after:bg-blue-500 
@@ -60,32 +35,8 @@ const Hero = () => {
             </span>
           </Link>
         </div>
-        {/* analytics img */}
-        <div className=" absolute h-60 md:h-80 w-auto xl:top-60 xl:-right-40 drop-shadow-2xl drop-shadow-black z-10 lg:top-65 lg:-right-45 md:top-85 md:-right-45 top-85 ">
-          <AnalyticsAnim />
-        </div>
-        {/* more sales svg */}
-        <div className="hidden md:block absolute xl:top-8 xl:left-6 drop-shadow-2xl lg:top-8 lg:left-2 md:top-75 md:left-2 drop-shadow-black z-10 opacity-50">
-          <MoreSales className="w-72" />
-        </div>
-        {/* Order Notify */}
-        <div className="hidden absolute w-max   xl:top-70 xl:left-10 drop-shadow-2xl drop-shadow-black z-10  md:block lg:top-70 lg:left-8 md:top-138 md:left-8">
-          <ul className="flex flex-col gap-2 ">
-            {NotifyOrdersData.map(data => (
-              <li
-                key={data.id}
-                className="relative flex gap-3 items-center bg-white px-2 py-2 max-w-xs rounded-xl">
-                <div className="bg-black size-12 rounded-full flex-none"></div>
-                <div className="flex flex-col justify-start flex-1">
-                  <p className=" text-gray-950/85 self-end text-xs    ">
-                    {data.time}
-                  </p>
-                  <p className="text-black">{data.message} </p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* animated components */}
+        <HeroAnimated />
       </div>
     </section>
   );

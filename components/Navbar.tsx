@@ -26,7 +26,7 @@ const Navbar = () => {
     } else {
       setHeaderCollapse(false);
     }
-    if (current > 400 && diff > 0) {
+    if (current > 300 && diff > 0) {
       setScrollDirection('down');
     } else if (diff < 0) {
       setScrollDirection('up');
