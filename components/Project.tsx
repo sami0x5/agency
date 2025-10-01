@@ -1,7 +1,9 @@
+'use client';
 import Image, { StaticImageData } from 'next/image';
-import React from 'react';
-import cursor from '../public/cursor2.png';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
 
 const Project = ({
   item,
@@ -14,11 +16,62 @@ const Project = ({
     tags: string[];
   };
 }) => {
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isInside, setIsInside] = useState(false);
+  const boxRef = useRef<HTMLAnchorElement>(null);
+  useEffect(() => {
+    const windowSize = () => {
+      if (window.innerWidth >= 1040) {
+        setIsDesktop(true);
+      } else {
+        setIsDesktop(false);
+      }
+    };
+    windowSize();
+  }, []);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (boxRef.current) {
+      const rect = boxRef.current.getBoundingClientRect();
+      setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+    }
+  };
+  const handleMouseEnter = () => {
+    setIsInside(true);
+  };
+  const handleMouseLeave = () => {
+    setIsInside(false);
+  };
+
   return (
     <Link
-      className=" bg-[#181616ac] rounded-2xl  max-w-3xl justify-self-center mb-6 lg:mb-2 group overflow-clip transition duration-500   "
+      ref={boxRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className=" bg-[#181616ac] rounded-2xl  max-w-3xl justify-self-center mb-6 lg:mb-2 group overflow-clip transition duration-500  relative lg:cursor-none  "
       href={item.link}
-      target="_blank">
+      target={isDesktop ? '_blank' : '_self'}>
+      <AnimatePresence>
+        {isInside && (
+          <motion.div
+            initial={{ scale: 0, rotate: '-180deg' }}
+            animate={{ scale: 1, rotate: '0deg' }}
+            exit={{ scale: 0, rotate: '180deg' }}
+            transition={{ type: 'spring', duration: 0.6, bounce: 0.4 }}
+            className="z-10 absolute size-20  bg-white border border-white/10 rounded-full  pointer-events-none  -translate-x-1/2 -translate-y-1/2 hidden lg:flex justify-center items-center  "
+            style={{
+              left: `${position.x}px`,
+              top: `${position.y}px`,
+            }}>
+            {' '}
+            <span>
+              <ArrowUpRight color="black" size={48} />
+            </span>{' '}
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div className="overflow-clip">
         {' '}
         <Image
