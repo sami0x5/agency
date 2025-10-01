@@ -22,7 +22,7 @@ const NotifyOrderList = ({
         x: index === 1 ? 5 : index === 2 ? 10 : 0,
       }}
       animate={{ x: 0, y: 0 }}
-      transition={{ delay: 2.6 }}
+      transition={{ delay: 1.6 }}
       className={`relative flex gap-3 items-center bg-white px-2 py-2 max-w-xs rounded-xl shadow shadow-gray-900 -z-[${index}] `}>
       <div className="size-12 rounded-full flex-none">
         <Image

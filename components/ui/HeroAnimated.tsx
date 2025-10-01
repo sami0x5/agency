@@ -33,7 +33,7 @@ const HeroAnimated = () => {
       <motion.div
         initial={{ x: 300, opacity: 0, y: -100 }}
         animate={{ x: 0, opacity: 1, y: 0 }}
-        transition={{ duration: 2.5, ease: 'easeInOut' }}
+        transition={{ duration: 1.5, ease: 'easeInOut' }}
         className=" absolute h-60 md:h-80 w-auto xl:top-60 xl:-right-40 drop-shadow-2xl drop-shadow-black z-10 lg:top-65 lg:-right-45 md:top-85 md:-right-45 top-85 ">
         <AnalyticsAnim />
       </motion.div>
