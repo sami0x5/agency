@@ -27,7 +27,6 @@ const ServiceAnimation = ({
 
   useMotionValueEvent(wordIndex, 'change', latest => {
     setCurrentWord(latest);
-    console.log(currentWord);
   });
   return (
     <div

@@ -1,8 +1,8 @@
 'use client';
-import React, { useState } from 'react';
-import { v4 as uuid } from 'uuid';
+import React, { useEffect, useRef, useState } from 'react';
 import cardBg from '@/public/card-bg.jpg';
 import ArrowButton from '../ui/ArrowButton';
+import { AnimatePresence, motion } from 'motion/react';
 
 const faqs: {
   question: string;
@@ -40,10 +40,34 @@ const faqs: {
   },
 ];
 
-const Faqs = () => {
+const Faqs = ({
+  classNameSection,
+  classNameMt,
+}: {
+  classNameSection: string;
+  classNameMt: string;
+}) => {
   const [activeIndex, setActiveIndex] = useState<null | number>(null);
+  const [top, setTop] = useState(0);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const element = sectionRef.current;
+    if (!element) return;
+    const observer = new ResizeObserver(() => {
+      setTop(window.innerHeight - element.getBoundingClientRect().height);
+    });
+
+    observer.observe(element);
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
   return (
-    <section className="mt-6 p-6  lg:p-12  overflow-clip  sticky -top-80 ">
+    <section
+      ref={sectionRef}
+      className={` p-6  lg:p-12  overflow-clip ${classNameSection}`}
+      style={{ top: top }}>
+      <div className={classNameMt}></div>
       <h2
         id="faqs"
         className="text-5xl text-center  tracking-tight  font-semibold  bg-gradient-to-r from-gray-400/75 via-white/80 to-gray-400 bg-clip-text text-transparent">
@@ -53,7 +77,11 @@ const Faqs = () => {
       <div className="lg:mt-20 lg:grid grid-cols-5 flex flex-col">
         {/* pricing ads */}
         <div className=" col-span-2 flex lg:justify-left lg:items-start items-center mb-10 lg:mb-0 px-4 ">
-          <div
+          <motion.div
+            initial={{ filter: 'blur(10px)' }}
+            whileInView={{ filter: 'blur(0px)' }}
+            transition={{ duration: 0.6, type: 'tween', ease: 'linear' }}
+            viewport={{ once: true }}
             className="px-8 py-8 lg:w-md w-full rounded-sm mt-32 
             relative
             "
@@ -69,13 +97,14 @@ const Faqs = () => {
               </h3>
               <ArrowButton>View Pricing</ArrowButton>
             </div>
-          </div>
+          </motion.div>
         </div>
         {/* faq section */}
         <div className="col-span-3 ">
           <ul className="flex flex-col">
             {faqs.map((faq, index) => (
-              <li key={uuid()} className=" p-4">
+              <li key={index} className="  px-4 pb-4 overflow-hidden">
+                {index === 0 ? '' : <hr className="opacity-25" />}
                 <div
                   onClick={() => {
                     if (activeIndex === index) {
@@ -84,12 +113,12 @@ const Faqs = () => {
                       setActiveIndex(index);
                     }
                   }}
-                  className="cursor-pointer select-none flex items-center gap-4 justify-between pe-4 hover:opacity-75 ">
+                  className="mt-4 cursor-pointer select-none flex items-center gap-4 justify-between pe-4 hover:opacity-75 transition ">
                   <h3 className="text-2xl opacity-95 font-medium ">
                     {faq.question}{' '}
                   </h3>
                   <div
-                    className={`size-10 rounded-full  flex justify-center items-center  flex-none ${
+                    className={`size-10 rounded-full  flex justify-center items-center  flex-none transition-all duration-500 ${
                       activeIndex === index ? 'bg-white/95' : 'bg-white/15 '
                     }`}>
                     <svg
@@ -97,29 +126,39 @@ const Faqs = () => {
                       height="16"
                       viewBox="0 0 12 16"
                       fill="none"
-                      className={`${activeIndex === index && 'rotate-180'}`}
+                      className={`transition-all duration-500 ${
+                        activeIndex === index && 'rotate-180'
+                      }`}
                       xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M5 8.74228e-08L5 12.17L1.41 8.59L0 10L5.29289 15.2929C5.68342 15.6834 6.31658 15.6834 6.70711 15.2929L12 10L10.59 8.59L7 12.17L7 0L5 8.74228e-08Z"
-                        className={`${
+                        className={`transition duration-500 ${
                           activeIndex === index ? 'fill-black' : 'fill-white/95'
                         }`}></path>
                     </svg>
                   </div>
                 </div>
                 <br />
-                {activeIndex === index && (
-                  <p className="mb-5 text-xl opacity-80 font-sans  ">
-                    {faq.answer}{' '}
-                  </p>
-                )}
-                {faqs.length === index + 1 ? '' : <hr className="opacity-25" />}
+                <AnimatePresence>
+                  {index === activeIndex && (
+                    <motion.div
+                      key={index}
+                      initial={{ height: 0 }}
+                      animate={{ height: 'auto' }}
+                      exit={{ height: 0 }}
+                      transition={{ duration: 0.3 }}>
+                      <p className=" text-xl opacity-80 font-sans">
+                        {faq.answer}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </li>
             ))}
           </ul>
         </div>
       </div>
-      <div className="h-[400px]"></div>
+      <motion.div className="h-[80px]"></motion.div>
     </section>
   );
 };
