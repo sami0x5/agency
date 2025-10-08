@@ -12,9 +12,9 @@ export default function Home() {
       <LogoTicker />
       <Services />
       <Projects pillTitle="Our Latest Work" />
-      {/* next section faqs */}
       <Faqs classNameSection="sticky " classNameMt="h-6" />
-      <ContactUs className="rounded-t-[3rem]" />
+      {/* next section faqs */}
+      <ContactUs className="rounded-t-[3rem]" classNameMt="md:mt-5 lg:mt-20" />
     </>
   );
 }

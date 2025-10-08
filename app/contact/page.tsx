@@ -4,7 +4,7 @@ import React from 'react';
 const page = () => {
   return (
     <main>
-      <ContactUs />
+      <ContactUs classNameMt="mt-20" />
     </main>
   );
 };
