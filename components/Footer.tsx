@@ -4,11 +4,11 @@ import Logo from './Logo';
 
 const quickLinks: { linkName: string; link: string }[] = [
   { linkName: 'Home', link: '/' },
-  { linkName: 'Services', link: '#services' },
-  { linkName: 'Work', link: '#work' },
+  { linkName: 'Services', link: '/services' },
+  { linkName: 'Work', link: '/work' },
   { linkName: 'Pricing', link: '/pricing' },
   { linkName: 'Contact', link: '/contact' },
-  { linkName: 'FAQs', link: '/#faqs' },
+  { linkName: 'FAQs', link: '/faqs' },
 ];
 
 const Footer = () => {

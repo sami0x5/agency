@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import dotBg from '@/public/dot-bg.jpg';
 import Link from 'next/link';
 import { Check } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
+
+import NumberFlow from '@number-flow/react';
 
 const seoFeatures = [
   'Complete technical SEO setup (site speed, indexing, mobile optimization)',
@@ -34,16 +37,40 @@ const SeoPlan = () => {
           backgroundSize: '90%',
         }}></div>
       <div className="absolute inset-0   rounded-xl bg-black/25 z-[2]  "></div>
-      <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-emerald-400 via-indigo-600 to-fuchsia-500 -z-10 -m-1"></div>
+      <motion.div
+        animate={{
+          backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
+        }}
+        transition={{
+          duration: 5,
+          ease: 'linear',
+          repeat: Infinity,
+        }}
+        style={{
+          backgroundSize: '200% 200%',
+        }}
+        className="absolute inset-0 rounded-xl bg-gradient-to-br from-emerald-400 via-indigo-600 to-fuchsia-500 -z-10 -m-1"></motion.div>
       {/* bg styling end */}
 
       <div className="relative z-20">
         <p className="text-right">
           <span className="bg-black text-blue-400 py-1 px-2 rounded-full border-1 border-white/60 text-[12px] font-semibold  ">
-            <span className="bg-gradient-to-r from-emerald-400 to-indigo-700 bg-clip-text text-transparent">
+            <motion.span
+              animate={{
+                backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
+              }}
+              transition={{
+                duration: 5,
+                ease: 'linear',
+                repeat: Infinity,
+              }}
+              style={{
+                backgroundSize: '200% 200%',
+              }}
+              className="bg-gradient-to-r from-emerald-400 via-indigo-600 to-fuchsia-500 bg-clip-text text-transparent">
               {' '}
               Best Value
-            </span>
+            </motion.span>
           </span>
         </p>
 
@@ -67,7 +94,7 @@ const SeoPlan = () => {
               />
               <label
                 htmlFor={service.name}
-                className={`cursor-pointer font-medium   transition ${
+                className={`cursor-pointer font-medium   transition select-none ${
                   service.name === serviceTypes[selectedService].name
                     ? 'text-amber-300'
                     : ' text-white/95'
@@ -80,9 +107,13 @@ const SeoPlan = () => {
 
         <p className="text-sm mt-6 text-white/70">Starting at</p>
         <h2 className="text-5xl text-center">
-          $
-          {serviceTypes[selectedService].pricing +
-            serviceTypes[selectedService].seoPricing}{' '}
+          <span>$</span>
+          <NumberFlow
+            value={
+              serviceTypes[selectedService].pricing +
+              serviceTypes[selectedService].seoPricing
+            }
+          />
         </h2>
         <Link
           href="/contact"
@@ -96,7 +127,16 @@ const SeoPlan = () => {
               <Check color="#0dff00" size={18} />
             </span>
             <span>
-              Everything included in {serviceTypes[selectedService].name}{' '}
+              Everything included in{' '}
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={selectedService}
+                  initial={{ filter: 'blur(5px)' }}
+                  animate={{ filter: 'blur(0)' }}
+                  transition={{ duration: 0.5 }}>
+                  {serviceTypes[selectedService].name}
+                </motion.span>
+              </AnimatePresence>
             </span>
           </li>
           {seoFeatures.map(feature => (

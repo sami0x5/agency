@@ -11,6 +11,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import FullScreenImage from './ui/FullScreenImage';
+import { AnimatePresence, motion } from 'motion/react';
 
 const comparisonList = [
   {
@@ -73,55 +74,65 @@ const PriceComparison = () => {
         Built with the same standards as top companies, made affordable for you.
       </p>
       {/* price comparison cards */}
-      <div className="flex flex-col lg:flex-row justify-around items-center bg-gray-700/40 rounded-2xl text-black p-6 mt-5 pb-8 ">
+      <div className="grid grid-cols-1 grid-rows-3 lg:grid-rows-1 lg:grid-cols-5 bg-gray-700/40 rounded-2xl text-black p-6 mt-5 pb-8  ">
         {/* our price */}
-        <div className="flex flex-col justify-center items-center  ">
+        <div className="flex flex-col justify-center items-center lg:col-span-2  ">
           <div className=" border border-white/80 p-1 rounded-full mb-5">
             <p className="font-semibold text-sm bg-gradient-to-r from-[#2ab9aa] to-[#1f9731] p-2 rounded-full cursor-pointer select-none ">
               Our Pricing
             </p>
           </div>
-          {/* i was here */}
+
           {ourFullScreenImage ? (
             <FullScreenImage
               handleCloseFullScreen={handleCloseOurFullScreen}
               ourImage={{ name: 'Codenix', image: Mypricing }}
             />
           ) : (
-            <Image
-              src={Mypricing}
+            <motion.div
+              layoutId="ourImage"
+              className="z-50"
               onClick={() => {
                 setOurFullScreenImage(true);
-              }}
-              alt="Codenix price"
-              className="rounded-lg cursor-zoom-in"
-              placeholder="blur"
-            />
+              }}>
+              <Image
+                src={Mypricing}
+                alt="Codenix price"
+                className="rounded-lg cursor-zoom-in"
+                placeholder="blur"
+              />
+            </motion.div>
           )}
         </div>
         {/* versus image */}
-        <div className="">
+        <div className="flex justify-center items-center lg:col-span-1">
           {' '}
           <VSImage />{' '}
         </div>
         {/* competitors price */}
-        <div className="flex flex-col justify-center items-center">
-          <div className="flex gap-2 border border-white/80 p-1 rounded-full mb-5">
+        <div className="flex flex-col justify-center items-center lg:col-span-2">
+          <div className="flex gap-1 md:gap-2 border border-white/80 p-1 rounded-full mb-5">
             {comparisonList.map((competitor, index) => (
-              <p
+              <div
                 key={competitor.name}
                 onClick={() => {
                   setSelectedCompetitor(index);
                 }}
-                className={`font-semibold text-sm   p-2 rounded-full  cursor-pointer select-none transition ${
+                className={`relative font-semibold text-xs md:text-sm   p-2 rounded-full  cursor-pointer select-none transition ${
                   selectedCompetitor === index
-                    ? 'bg-gradient-to-r from-[#2ab9aa] to-[#1f9731] text-black'
+                    ? ' text-black'
                     : 'text-white hover:bg-white/10'
                 }`}>
-                {competitor.name}
-              </p>
+                {selectedCompetitor === index && (
+                  <motion.div
+                    layoutId="selectedCompetitor"
+                    className="absolute inset-0 bg-gradient-to-r from-[#2ab9aa] to-[#1f9731] rounded-full"></motion.div>
+                )}
+                <span className="relative">{competitor.name}</span>
+              </div>
             ))}
           </div>
+          {/* competitor image */}
           {fullScreenImage ? (
             <FullScreenImage
               handleCloseFullScreen={handleCloseFullScreen}
@@ -131,25 +142,35 @@ const PriceComparison = () => {
               }}
             />
           ) : (
-            <div className="relative">
-              <Image
-                src={comparisonList[selectedCompetitor].image}
-                alt={comparisonList[selectedCompetitor].name + 'price'}
-                onClick={() => {
-                  setFullScreenImage(true);
-                }}
-                className="rounded-lg transition-all duration-500 cursor-zoom-in"
-                placeholder="blur"
-              />
-              <Link
-                href={comparisonList[selectedCompetitor].link}
-                className="absolute bottom-2 right-2 bg-red-500 text-white flex px-2 py-1 rounded-md text-sm justify-center items-center drop-shadow-lg drop-shadow-black  "
-                target={isDesktop ? '_blank' : '_self'}>
-                <span>View</span>
-                <span>
-                  <ArrowUpRight />
-                </span>
-              </Link>
+            // i was here
+            <div className="relative transition">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  initial={{ filter: 'blur(5px)' }}
+                  animate={{ filter: 'blur(0)' }}
+                  transition={{ duration: 0.3 }}
+                  key={selectedCompetitor}
+                  layoutId="competitorImage">
+                  <Image
+                    src={comparisonList[selectedCompetitor].image}
+                    alt={comparisonList[selectedCompetitor].name + 'price'}
+                    onClick={() => {
+                      setFullScreenImage(true);
+                    }}
+                    className="rounded-lg transition-all duration-500 cursor-zoom-in"
+                    placeholder="blur"
+                  />
+                  <Link
+                    href={comparisonList[selectedCompetitor].link}
+                    className="absolute bottom-2 right-2 bg-red-500 text-white flex px-2 py-1 rounded-md text-sm justify-center items-center drop-shadow-lg drop-shadow-black  "
+                    target={isDesktop ? '_blank' : '_self'}>
+                    <span>View</span>
+                    <span>
+                      <ArrowUpRight />
+                    </span>
+                  </Link>
+                </motion.div>
+              </AnimatePresence>
             </div>
           )}
         </div>
