@@ -1,13 +1,14 @@
-import { motion } from 'motion/react';
+import { cn } from '@/lib/utils';
+import * as motion from 'motion/react-client';
 import React from 'react';
 
-const WaveLoader = () => {
+const WaveLoader = ({ className }: { className?: string }) => {
   return (
     <div className="flex gap-1">
       {[0, 1, 2, 3, 4].map(i => (
         <motion.div
           key={i}
-          className="w-1 h-4 rounded-full relative"
+          className={cn('w-1 h-4 rounded-full relative', className)}
           style={{
             background: '#ffffff',
           }}

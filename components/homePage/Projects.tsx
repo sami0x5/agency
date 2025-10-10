@@ -37,8 +37,11 @@ const Projects = ({
   className?: string;
 }) => {
   return (
-    <section className="mt-12 lg:p-12  overflow-clip relative p-6">
-      <SectionHeader title={pillTitle} className={`text-lg ${className}`} />
+    <section className=" lg:p-12  overflow-clip relative p-6">
+      <SectionHeader
+        title={pillTitle}
+        className={`text-lg pt-12 ${className}`}
+      />
       <div className="mt-12 grid grid-cols-1 md:grid-cols-2  gap-6 ">
         {allData.map((item, index) => (
           <Project key={`${item.name}${index}`} item={item} />
