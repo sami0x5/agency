@@ -3,7 +3,6 @@
 import { contactValidation } from './utils';
 import nodemailer from 'nodemailer';
 import SMTPTransport from 'nodemailer/lib/smtp-transport';
-import { success } from 'zod';
 
 interface formData {
   name: string;

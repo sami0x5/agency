@@ -5,6 +5,7 @@ import dotBg from '@/public/dot-bg.jpg';
 import Link from 'next/link';
 import SeoPlan from '@/components/ui/SeoPlan';
 import PriceComparison from '@/components/PriceComparison';
+import { Metadata } from 'next';
 
 const pricingTiers: {
   serviceName: string;
@@ -67,6 +68,11 @@ const pricingTiers: {
     ],
   },
 ];
+
+export const metadata: Metadata = {
+  title: 'Pricing & Packages | Codenix',
+  description: `Discover Codenix's starting prices for websites, MVPs, e-commerce, and SEO services. Custom projects may vary — get a quote tailored to your business.`,
+};
 
 const page = () => {
   return (
