@@ -1,5 +1,4 @@
 import React from 'react';
-import { ErrorType } from './ContactForm';
 
 const InputField = ({
   label,

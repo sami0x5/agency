@@ -30,12 +30,3 @@ const PopUp = ({
 };
 
 export default PopUp;
-//  <AnimatePresence>
-//    {isSubmittedSuccessfully && (
-//      <div className="fixed top-0 left-0 right-0 z-[2000] flex justify-center items-center">
-//        <p className="bg-green-600 py-2 md:text-lg md:px-4 px-2 mt-10 rounded-lg text-center ">
-//          Your message has been sent successfully!
-//        </p>
-//      </div>
-//    )}
-//  </AnimatePresence>;
