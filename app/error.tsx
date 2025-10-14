@@ -4,6 +4,7 @@ import FuzzyText from '@/components/ui/FuzzyText';
 import { RefreshCw } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
+import posthog from 'posthog-js';
 
 const Error = ({
   error,
@@ -16,6 +17,7 @@ const Error = ({
   const [isSpinning, setIsSpinning] = useState(false);
 
   useEffect(() => {
+    posthog.captureException(error);
     console.error(error);
   }, [error]);
 
