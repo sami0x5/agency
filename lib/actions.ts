@@ -3,6 +3,7 @@
 import { contactValidation } from './utils';
 import nodemailer from 'nodemailer';
 import SMTPTransport from 'nodemailer/lib/smtp-transport';
+import { google } from 'googleapis';
 
 interface formData {
   name: string;
@@ -13,6 +14,9 @@ interface formData {
   company?: string | undefined;
   details?: string | undefined;
 }
+
+const OAuth2 = google.auth.OAuth2;
+
 export const contactForm = async (formData: formData) => {
   const result = await contactValidation.safeParse(formData);
 
@@ -34,6 +38,16 @@ export const contactForm = async (formData: formData) => {
   const { budget, email, name, phone, service, company, details } = result.data;
 
   try {
+    const oAuth2Client = new OAuth2(
+      process.env.CLIENT_ID,
+      process.env.CLIENT_SECRET,
+      'https://developers.google.com/oauthplayground'
+    );
+
+    oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
+
+    const accessToken = await oAuth2Client.getAccessToken();
+
     const transporter = nodemailer.createTransport({
       host: process.env.EMAIL_HOST,
       port: process.env.EMAIL_PORT,
@@ -44,6 +58,7 @@ export const contactForm = async (formData: formData) => {
         clientId: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
         refreshToken: process.env.REFRESH_TOKEN,
+        accessToken: accessToken?.token,
       },
     } as SMTPTransport.Options);
 
@@ -51,6 +66,7 @@ export const contactForm = async (formData: formData) => {
       from: `"Codenix" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_RECEIVER,
       subject: `Contact Request - ${name}`,
+      replyTo: email,
       html: `<div style=" background-color: #ffffff;">
     <table style="margin-top: 10px; font-size: 25px; border-collapse: collapse;">
       <tr style="background-color: #51515141;">
