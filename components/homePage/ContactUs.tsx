@@ -6,6 +6,7 @@ import 'react-phone-number-input/style.css';
 import ContactForm from '../ContactForm';
 import MyApp from '../MeetingForm';
 import { motion } from 'motion/react';
+import { useSearchParams } from 'next/navigation';
 
 const ContactUs = ({
   className,
@@ -14,7 +15,10 @@ const ContactUs = ({
   className?: string;
   classNameMt: string;
 }) => {
-  const [isMessage, setIsMessage] = useState(true);
+  const searchParams = useSearchParams();
+  const booking = searchParams.get('booking');
+
+  const [isMessage, setIsMessage] = useState(booking === 'true' ? false : true);
   return (
     <section
       className={`z-10 relative  bg-[#d6dce1] flex flex-col justify-center items-center text-black pt-8 sm:px-8 sm:pb-20 overflow-clip ${className} `}>
