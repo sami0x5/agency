@@ -3,27 +3,26 @@ import React, { useEffect, useState } from 'react';
 import SectionHeader from './SectionHeader';
 import Mypricing from '@/public/pricingImages/my-pricing.png';
 import Musemind from '@/public/pricingImages/musemind.png';
-import Huemor from '@/public/pricingImages/huemor.png';
 import Blend from '@/public/pricingImages/blend.png';
 import Amply from '@/public/pricingImages/amply.png';
 import VSImage from './svgComponents/VSImage';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import FullScreenImage from './ui/FullScreenImage';
 import { AnimatePresence, motion } from 'motion/react';
 
-const comparisonList = [
+const comparisonList: {
+  name: string;
+  image: StaticImageData;
+  link: string;
+}[] = [
   {
     name: 'Musemind',
     image: Musemind,
     link: 'https://musemind.agency/pricing-plan',
   },
-  {
-    name: 'Huemor',
-    image: Huemor,
-    link: 'https://huemor.rocks/resources/website-cost-calculator/quote/?cost=%26lt%3B3+Months&pages=10-50&interactive=Simple++%26amp%3B+Effective&copy=No&seo=Yes&lang=No&dynamic=No&cms=WordPress&tfrom=67%2C500&tto=82%2C500',
-  },
+
   {
     name: 'Blend',
     image: Blend,

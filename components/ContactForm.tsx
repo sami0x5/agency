@@ -277,6 +277,7 @@ const ContactForm = () => {
               <option value="e-commerce">E-commerce Website</option>
               <option value="seo">SEO</option>
               <option value="mvp">MVP Development</option>
+              <option value="website+seo">Website & SEO</option>
               <option value="redesign">Website Redesign</option>
               <option value="other">Other</option>
             </select>
@@ -299,9 +300,9 @@ const ContactForm = () => {
               <option value="placeholder" disabled>
                 Select your budget
               </option>
-              <option value="3k-5k">$3,000 - $5,000</option>
-              <option value="5k-10k">$5,000 - $10,000</option>
-              <option value="10k-20k">$10,000 - $20,000</option>
+              <option value="5k-8k">$5,000 - $8,000</option>
+              <option value="8k-12k">$8,000 - $12,000</option>
+              <option value="12k-20k">$12,000 - $20,000</option>
               <option value="20k+">$20,000+</option>
               <option value="not-sure">Not sure / Need consultation</option>
             </select>

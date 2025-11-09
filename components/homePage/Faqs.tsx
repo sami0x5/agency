@@ -11,7 +11,7 @@ const faqs: {
   {
     question: 'How much should I expect to pay for a website?',
     answer:
-      "The cost to build a website can vary greatly depending on the complexity, number of pages, required features, and the overall design experience. Traditional agencies may charge anywhere from $10,000 to $50,000 for a basic site, with complex platforms going above $200,000. Unlike traditional agencies, we aim to provide the same level of quality and in many ways, even higher quality at a more accessible rate — typically $3,000 to $15,000 for a standard website, with higher pricing for feature-rich builds. Think of it as an investment in your business's long-term growth and success.",
+      "The cost to build a website can vary greatly depending on the complexity, number of pages, required features, and the overall design experience. Traditional agencies may charge anywhere from $10,000 to $50,000 for a modern site, with complex platforms going above $200,000. Unlike traditional agencies, we aim to provide the same level of quality and in many ways, even higher quality at a more accessible rate — typically $5,000 to $15,000 for a modern website, with higher pricing for feature-rich builds. Think of it as an investment in your business's long-term growth and success.",
   },
   {
     question: 'How long does it take to build a website?',
