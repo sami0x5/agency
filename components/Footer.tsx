@@ -199,6 +199,24 @@ const Footer = () => {
           ))}
         </div>
       </div>
+      {/* trustpilot widget */}
+      <div className="flex justify-center items-center">
+        <div
+          className="trustpilot-widget"
+          data-locale="en-US"
+          data-template-id="56278e9abfbbba0bdcd568bc"
+          data-businessunit-id="68f6147faffbe7a3ef3d8106"
+          data-style-height="52px"
+          data-style-width="100%"
+          data-token="0c572d96-2691-4640-8676-96a1acc9f7da">
+          <a
+            href="https://www.trustpilot.com/review/codenix.agency"
+            target="_blank"
+            rel="noopener">
+            Trustpilot
+          </a>
+        </div>
+      </div>
       <p className="text-center pb-8 opacity-75">
         © Codenix 2025 | All Rights Reserved.
       </p>
