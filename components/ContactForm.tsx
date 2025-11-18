@@ -300,10 +300,9 @@ const ContactForm = () => {
               <option value="placeholder" disabled>
                 Select your budget
               </option>
-              <option value="5k-8k">$5,000 - $8,000</option>
-              <option value="8k-12k">$8,000 - $12,000</option>
-              <option value="12k-20k">$12,000 - $20,000</option>
-              <option value="20k+">$20,000+</option>
+              <option value="3k-5k">$3,000 - $5,000</option>
+              <option value="5k-10k">$5,000 - $10,000</option>
+              <option value="10k-20k">$10,000 - $20,000</option>
               <option value="not-sure">Not sure / Need consultation</option>
             </select>
           </InputField>

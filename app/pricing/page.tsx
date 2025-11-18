@@ -16,7 +16,7 @@ const pricingTiers: {
   {
     serviceName: 'Business Website',
     timeLimit: '2-8 weeks',
-    price: 5000,
+    price: 3000,
     features: [
       { feature: 'Responsive design for all devices' },
       { feature: 'Modern UI/UX with clean layouts' },
@@ -31,7 +31,7 @@ const pricingTiers: {
   {
     serviceName: 'E-commerce Website',
     timeLimit: '1-4 months',
-    price: 8000,
+    price: 5000,
     features: [
       { feature: 'Responsive design for all devices' },
       { feature: 'Modern UI/UX with clean layouts' },
@@ -52,7 +52,7 @@ const pricingTiers: {
   {
     serviceName: 'MVP Development',
     timeLimit: '1-6 months',
-    price: 12000,
+    price: 8000,
     features: [
       { feature: 'Fully responsive design for all devices' },
       { feature: 'Modern UI/UX with clean layouts' },

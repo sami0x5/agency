@@ -18,9 +18,9 @@ const seoFeatures = [
 ];
 
 const serviceTypes: { name: string; pricing: number; seoPricing: number }[] = [
-  { name: 'Business Website', pricing: 5000, seoPricing: 3000 },
-  { name: 'E-commerce Web', pricing: 8000, seoPricing: 4000 },
-  { name: 'MVP Development', pricing: 12000, seoPricing: 3000 },
+  { name: 'Business Website', pricing: 3000, seoPricing: 2000 },
+  { name: 'E-commerce Web', pricing: 5000, seoPricing: 3000 },
+  { name: 'MVP Development', pricing: 8000, seoPricing: 3000 },
 ];
 
 const SeoPlan = () => {
