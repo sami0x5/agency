@@ -255,7 +255,7 @@ const ContactForm = () => {
             placeholder="Google LLC"
             required={false}
           />
-          {/* select service */}
+          {/* service required */}
           <InputField
             error={errors.service}
             value={formData.service}
@@ -275,21 +275,18 @@ const ContactForm = () => {
               </option>
               <option value="business">Business Website</option>
               <option value="e-commerce">E-commerce Website</option>
-              <option value="seo">SEO</option>
-              <option value="mvp">MVP Development</option>
-              <option value="website+seo">Website & SEO</option>
               <option value="redesign">Website Redesign</option>
               <option value="other">Other</option>
             </select>
           </InputField>
-          {/* project budget */}
+          {/* service type */}
           <InputField
             error={errors.budget}
             value={formData.budget}
             handleChange={handleChange}
             name="budget"
             required
-            label="Project budget"
+            label="Service type"
             autoComplete=""
             customInput>
             <select
@@ -298,11 +295,10 @@ const ContactForm = () => {
               onChange={e => handleChange(e)}
               className="border-2 border-black/30 rounded-md h-12 p-2 mt-1">
               <option value="placeholder" disabled>
-                Select your budget
+                Select a service type
               </option>
-              <option value="3k-5k">$3,000 - $5,000</option>
-              <option value="5k-10k">$5,000 - $10,000</option>
-              <option value="10k-20k">$10,000 - $20,000</option>
+              <option value="monthly">monthly</option>
+              <option value="one-time">onetime</option>
               <option value="not-sure">Not sure / Need consultation</option>
             </select>
           </InputField>

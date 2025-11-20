@@ -14,6 +14,7 @@ const Project = ({
     link: string;
     desc: string;
     tags: string[];
+    date: string;
   };
 }) => {
   const [isDesktop, setIsDesktop] = useState(false);
@@ -84,7 +85,7 @@ const Project = ({
       <div className="p-4 flex flex-col gap-2 ">
         <div className="grid grid-cols-2 justify-between ">
           <div className="flex  items-center gap-2 text-md lg:text-lg ">
-            2025
+            <span className="text-sm italic">{item.date}</span>
             <span className="size-2 rounded-full bg-white "></span>
             {item.name}
           </div>

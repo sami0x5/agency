@@ -16,7 +16,7 @@ const faqs: {
   {
     question: 'How long does it take to build a website?',
     answer:
-      'The time it takes to build a website depends on its complexity, the scope of work, and how fast you give feedback during the project. Simple websites can often be completed in 2-4 weeks, while more complex platforms with advanced features or integrations may take 2-3 months or longer.',
+      'The time it takes to build a website depends on its complexity, the scope of work, and how fast you give feedback during the project. Simple websites can often be completed in 1-4 weeks, while more complex platforms with advanced features or integrations may take 2-3 months or longer.',
   },
   {
     question: 'What results can I expect after launching my website?',
@@ -36,7 +36,7 @@ const faqs: {
   {
     question: 'Do you provide support after the website launches?',
     answer:
-      'Yes, we provide post-launch support to ensure your website runs smoothly and any issues are resolved quickly.',
+      'Absolutely. We provide ongoing 24/7 support to ensure your website stays online, secure, and running smoothly at all times. From hosting reliability to technical fixes, we handle everything so you never have to worry about your site.',
   },
 ];
 

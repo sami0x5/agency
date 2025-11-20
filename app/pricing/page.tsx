@@ -3,69 +3,72 @@ import React from 'react';
 import { CircleAlert, Check } from 'lucide-react';
 import dotBg from '@/public/dot-bg.jpg';
 import Link from 'next/link';
-import SeoPlan from '@/components/ui/SeoPlan';
+
 import PriceComparison from '@/components/PriceComparison';
 import { Metadata } from 'next';
+import * as motion from 'motion/react-client';
 
 const pricingTiers: {
   serviceName: string;
-  timeLimit: string;
+
   price: number;
-  features: { feature: string }[];
+  included: string[];
+  addOns: string[];
 }[] = [
   {
     serviceName: 'Business Website',
-    timeLimit: '2-8 weeks',
     price: 3000,
-    features: [
-      { feature: 'Responsive design for all devices' },
-      { feature: 'Modern UI/UX with clean layouts' },
-      { feature: 'Custom animations & interactions' },
-      { feature: 'SEO-friendly structure' },
-      { feature: 'Fast page loading and performance optimization' },
-      { feature: 'Multi-page layouts (Home, About, Services, Contact)' },
-      { feature: 'Contact forms & lead capture' },
-      { feature: 'Launch support' },
+    included: [
+      '5 Custom Pages',
+      'Fully responsive, fast, SEO-optimized',
+      'Premium modern UI/UX design',
+      'Unlimited Edits & Updates (within project scope)',
+      'Analytics Dashboard: View visitors, page views, and user behavior',
+      'Hosting ($25/mo)',
+      'Maintenance ($50/mo)',
+      '24/7 Support',
+    ],
+    addOns: [
+      '+ Extra Page: $250 per page',
+      '+ Blog: $350 per blog',
+      '+ Advanced custom features priced separately',
+    ],
+  },
+  {
+    serviceName: 'Business Website',
+    price: 250,
+    included: [
+      '5 Custom Pages',
+      'Fully responsive, fast, SEO-optimized',
+      'Premium modern UI/UX design',
+      'Unlimited Edits & Updates (within project scope)',
+      'Analytics Dashboard: View visitors, page views, and user behavior',
+      'Hosting (free)',
+      'Maintenance (free)',
+      '24/7 Support',
+    ],
+    addOns: [
+      '+ Extra Page: $250 per page',
+      '+ Blog: $350 per blog',
+      '+ Advanced custom features priced separately',
     ],
   },
   {
     serviceName: 'E-commerce Website',
-    timeLimit: '1-4 months',
-    price: 5000,
-    features: [
-      { feature: 'Responsive design for all devices' },
-      { feature: 'Modern UI/UX with clean layouts' },
-      { feature: 'Custom animations & interactions' },
-      { feature: 'Product catalog & category management' },
-      { feature: 'Product search & advanced filtering' },
-      {
-        feature:
-          'Secure checkout & payment gateway integration (Stripe, PayPal, etc.)',
-      },
-      { feature: 'Shopping cart functionality' },
-      { feature: 'SEO-friendly structure' },
-      { feature: 'Customer account & order management' },
-      { feature: 'Analytics setup for sales tracking' },
-      { feature: 'Launch support' },
-    ],
-  },
-  {
-    serviceName: 'MVP Development',
-    timeLimit: '1-6 months',
     price: 8000,
-    features: [
-      { feature: 'Fully responsive design for all devices' },
-      { feature: 'Modern UI/UX with clean layouts' },
-      { feature: 'Custom animations & interactions' },
-      { feature: 'SEO-friendly structure' },
-      { feature: 'Custom feature development tailored to your idea' },
-      { feature: 'Authentication & user account management' },
-      { feature: 'Dashboard & admin panel setup' },
-      { feature: 'API integrations with third-party services' },
-      { feature: 'Analytics & performance tracking' },
-      { feature: 'Integration with payment systems (if applicable)' },
-      { feature: 'Launch support & guidance for iterative improvements' },
+    included: [
+      'Custom E-Commerce Website',
+      'Fully responsive, fast, SEO-optimized',
+      'Premium modern UI/UX design',
+      'CMS/Admin Dashboard: Easily manage products, pages, orders, and content',
+      'Secure checkout & payment gateway integration (Stripe, PayPal, etc.)',
+      'Unlimited Edits & Updates (within project scope)',
+      'Analytics Dashboard: View visitors, page views, and user behavior',
+      'Hosting ($50/mo)',
+      'Maintenance ($200/mo)',
+      '24/7 Support',
     ],
+    addOns: ['+ Advanced custom features priced separately'],
   },
 ];
 
@@ -87,19 +90,23 @@ const page = () => {
         </h1>
         <p className="text-xl  opacity-70 text-center p-3 ">
           <span className=" relative">
-            <span className="absolute -left-8 top-0 ">
-              <CircleAlert color="yellow" />
-            </span>
-            Prices shown are starting points. Final cost depends on complexity,
-            features, and integrations required.
+            Flexible pricing to match your business needs — upfront or monthly
+            plans available.
           </span>
         </p>
         {/* pricing card */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
-          {pricingTiers.map(tier => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:mx-12 gap-8 mt-16">
+          {pricingTiers.map((tier, index) => (
             <div
-              className="relative bg-gradient-to-r from-[#051614] to-[#0a312d] rounded-xl p-4"
-              key={tier.serviceName}>
+              className={`relative bg-gradient-to-r from-[#051614] to-[#0a312d] rounded-xl p-4 ${
+                index == 0
+                  ? 'order-2 md:order-1'
+                  : index == 1
+                  ? 'order-1 md:order-2'
+                  : 'order-3 md:order-3 md:col-span-2 md:justify-self-center lg:col-span-1 lg:justify-start'
+              }`}
+              key={index}>
+              {/* bg styling start */}
               <div
                 className="absolute  inset-0 rounded-xl opacity-5 z-[1] "
                 style={{
@@ -108,42 +115,100 @@ const page = () => {
                   backgroundSize: '90%',
                 }}></div>
               <div className="absolute inset-0   rounded-xl bg-black/25 z-[2]  "></div>
-              <div className="absolute inset-0 rounded-xl bg-white/50 -z-10 -m-1"></div>
+              {index == 1 ? (
+                <motion.div
+                  animate={{
+                    backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
+                  }}
+                  transition={{
+                    duration: 5,
+                    ease: 'linear',
+                    repeat: Infinity,
+                  }}
+                  style={{
+                    backgroundSize: '200% 200%',
+                  }}
+                  className="absolute inset-0 rounded-xl bg-gradient-to-br from-emerald-400 via-indigo-600 to-fuchsia-500 -z-10 -m-1"></motion.div>
+              ) : (
+                <div className="absolute inset-0 rounded-xl bg-white/50 -z-10 -m-1"></div>
+              )}
+              {/* bg styling end */}
               <div className="relative z-20">
-                <p>
-                  {' '}
-                  <span className="bg-black text-blue-300 py-1 px-2 rounded-full border-1 border-white/60 text-[10px] font-semibold italic">
-                    {tier.timeLimit}{' '}
-                  </span>{' '}
-                </p>
+                {index == 1 && (
+                  <p className="text-right">
+                    <span className="bg-black text-blue-400 py-1 px-2 rounded-full border-1 border-white/60 text-[12px] font-semibold  ">
+                      <motion.span
+                        animate={{
+                          backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
+                        }}
+                        transition={{
+                          duration: 5,
+                          ease: 'linear',
+                          repeat: Infinity,
+                        }}
+                        style={{
+                          backgroundSize: '200% 200%',
+                        }}
+                        className="bg-gradient-to-r from-emerald-400 via-indigo-600 to-fuchsia-500 bg-clip-text text-transparent">
+                        {' '}
+                        Best Value
+                      </motion.span>
+                    </span>
+                  </p>
+                )}
                 <h2 className="text-[1.6rem] text-left mt-3 ">
                   {tier.serviceName}{' '}
                 </h2>
-                <p className="text-sm mt-4 text-white/70">Starting at</p>
-                <h2 className="text-5xl text-center">${tier.price} </h2>
+                <p
+                  className={`text-sm mt-4 text-white/70 ${
+                    index !== 2 && 'hidden'
+                  }`}>
+                  Starting at
+                </p>
+                <h2 className={`text-5xl text-center ${index !== 2 && 'mt-4'}`}>
+                  ${tier.price}
+                  <span className="text-3xl">{index == 1 && '/mo'} </span>
+                </h2>
                 <Link
                   href="/contact"
                   className="flex justify-center items-center w-full bg-yellow-300 h-12 text-black rounded-full font-semibold mt-7 hover:bg-yellow-200 cursor-pointer transition">
                   Book a Call
                 </Link>
                 <hr className="mt-8 opacity-40" />
-                <ul className="mt-5 flex flex-col gap-2 text-sm ">
-                  {tier.features.map(feature => (
-                    <li
-                      key={feature.feature}
-                      className="flex gap-1 items-center  ">
+                {/* included */}
+                <p className="mt-5">Included:</p>
+                <ul className="mt-2 flex flex-col gap-2 text-sm ml-2 ">
+                  {tier.included.map(feature => (
+                    <li key={feature} className="flex gap-1 items-center  ">
                       <span>
                         <Check color="#0dff00" size={18} />
                       </span>
-                      <span className="opacity-70">{feature.feature}</span>
+                      <span className="opacity-75">{feature}</span>
                     </li>
                   ))}
                 </ul>
+                {/* add-ons */}
+                <p className="mt-2">Add-Ons:</p>
+                <ul className="mt-1 flex flex-col gap-2 text-sm ml-2 ">
+                  {tier.addOns.map(feature => (
+                    <li key={feature} className="flex gap-1 items-center  ">
+                      <span className="opacity-75">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                {/* contract */}
+                <p
+                  className={`${
+                    index == 1 ? '' : 'hidden'
+                  } mt-5 text-sm italic `}>
+                  <span className="text-red-500">*</span>
+                  <span className="opacity-90">
+                    12-month minimum contract, then month-to-month after that.
+                  </span>
+                </p>
               </div>
             </div>
           ))}
-
-          <SeoPlan />
         </div>
         {/* price comparison */}
         <PriceComparison />

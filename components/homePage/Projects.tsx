@@ -1,31 +1,42 @@
 import React from 'react';
 import SectionHeader from '../SectionHeader';
-import aiSEOImg from '@/public/aiseo.png';
-import landingPageImg from '@/public/landingpage.png';
-import layersImg from '@/public/layers.png';
+import aiSEOImg from '@/public/workImages/aiseo.png';
+import layersImg from '@/public/workImages/layers.png';
+import theNestStandard from '@/public/workImages/thenest-standard.png';
 import Project from '../Project';
+import { StaticImageData } from 'next/image';
 
-const allData = [
+const allData: {
+  name: string;
+  img: StaticImageData;
+  link: string;
+  desc: string;
+  tags: string[];
+  date: string;
+}[] = [
+  {
+    name: 'The Nest Standard',
+    img: theNestStandard,
+    link: 'https://www.theneststandard.com/',
+    desc: 'A custom-built cleaning service website showcasing services and driving estimate requests.',
+    tags: ['Cleaning Service', 'Business Website'],
+    date: '18 Nov 2025',
+  },
   {
     name: 'AI SEO Startup',
     img: aiSEOImg,
     link: 'https://ai-startup-landing-page-beta.vercel.app/',
     desc: ' A landing page for an AI SEO startup, showcasing their services and features.',
-    tags: ['Landing Page', 'MVP', 'Development'],
+    tags: ['Landing Page', 'Demo'],
+    date: '11 Aug 2025',
   },
   {
     name: 'Layers',
     img: layersImg,
     link: 'https://layers-swart.vercel.app/',
     desc: ' Layers is a collaborative design tool that lets teams create, prototype, and share ideas seamlessly.',
-    tags: ['Landing Page', 'MVP', 'Development'],
-  },
-  {
-    name: 'Landing page',
-    img: landingPageImg,
-    link: 'https://landing-page-demo-two.vercel.app/',
-    desc: ' A landing page for startup, showcasing their services and features.',
-    tags: ['Landing Page'],
+    tags: ['Landing Page', 'Demo'],
+    date: '21 Jul 2025',
   },
 ];
 

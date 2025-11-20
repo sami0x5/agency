@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useState } from 'react';
 import SectionHeader from '../SectionHeader';
 
 import { GlobeDemo } from '../ui/GlobeAnim';
@@ -21,14 +22,13 @@ const services = [
     description:
       'Get found online. We set up SEO-friendly structures, optimize content, and provide you with an SEO guide to grow your visibility and attract the right audience.',
   },
-  {
-    title: 'MVP Development',
-    description:
-      'Validate your startup idea quickly. We build scalable, functional MVPs that help you test, gather feedback, and launch faster with lower risk.',
-  },
 ];
 
 const Services = ({ className }: { className?: string }) => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
   return (
     <section className="lg:p-12  overflow-clip relative p-6 md:p-0 ">
       <SectionHeader
@@ -44,9 +44,11 @@ const Services = ({ className }: { className?: string }) => {
           <div className="md:h-60"></div>
         </div>
         {/* world */}
-        <div className="hidden md:block">
-          <GlobeDemo />
-        </div>
+        {!isMobile && (
+          <div className="hidden md:block">
+            <GlobeDemo />
+          </div>
+        )}
       </div>
     </section>
   );

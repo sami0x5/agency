@@ -5,7 +5,7 @@ import Mypricing from '@/public/pricingImages/my-pricing.png';
 import Musemind from '@/public/pricingImages/musemind.png';
 import Blend from '@/public/pricingImages/blend.png';
 import Amply from '@/public/pricingImages/amply.png';
-import VSImage from './svgComponents/VSImage';
+
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
@@ -73,11 +73,11 @@ const PriceComparison = () => {
         Built with the same standards as top companies, made affordable for you.
       </p>
       {/* price comparison cards */}
-      <div className="grid grid-cols-1 grid-rows-3 lg:grid-rows-1 lg:grid-cols-5 bg-gray-700/40 rounded-2xl text-black p-6 mt-5 pb-8  ">
+      <div className="flex flex-col lg:flex-row justify-center items-center gap-6 bg-gray-700/40 rounded-2xl text-black p-2 md:p-6 mt-5 pb-8   ">
         {/* our price */}
         <div className="flex flex-col justify-center items-center lg:col-span-2  ">
-          <div className=" border border-white/80 p-1 rounded-full mb-5">
-            <p className="font-semibold text-sm bg-gradient-to-r from-[#2ab9aa] to-[#1f9731] p-2 rounded-full cursor-pointer select-none ">
+          <div className=" border border-white/80 p-0.5 md:p-1 rounded-full mb-1 md:mb-3 lg:mb-5">
+            <p className="font-semibold text-xs md:text-sm bg-gradient-to-r from-[#2ab9aa] to-[#1f9731] p-1 md:p-2 rounded-full cursor-pointer select-none ">
               Our Pricing
             </p>
           </div>
@@ -103,21 +103,21 @@ const PriceComparison = () => {
             </motion.div>
           )}
         </div>
-        {/* versus image */}
-        <div className="flex justify-center items-center lg:col-span-1">
+        {/* vs text */}
+        <div className="text-4xl md:text-5xl text-white italic font-bold flex ">
           {' '}
-          <VSImage />{' '}
+          <span>V</span> <span className="translate-y-1">S</span>{' '}
         </div>
-        {/* competitors price */}
+        {/* competitors pricing */}
         <div className="flex flex-col justify-center items-center lg:col-span-2">
-          <div className="flex gap-1 md:gap-2 border border-white/80 p-1 rounded-full mb-5">
+          <div className="flex gap-1 md:gap-2 border border-white/80 p-0.5 md:p-1 rounded-full mb-1 md:mb-3 lg:mb-5">
             {comparisonList.map((competitor, index) => (
               <div
                 key={competitor.name}
                 onClick={() => {
                   setSelectedCompetitor(index);
                 }}
-                className={`relative font-semibold text-xs md:text-sm   p-2 rounded-full  cursor-pointer select-none transition ${
+                className={`relative font-semibold text-xs md:text-sm  p-1 md:p-2 rounded-full  cursor-pointer select-none transition ${
                   selectedCompetitor === index
                     ? ' text-black'
                     : 'text-white hover:bg-white/10'
