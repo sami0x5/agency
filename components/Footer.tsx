@@ -8,6 +8,7 @@ const quickLinks: { linkName: string; link: string }[] = [
   { linkName: 'Pricing', link: '/pricing' },
   { linkName: 'Contact', link: '/contact' },
   { linkName: 'FAQs', link: '/faqs' },
+  { linkName: 'Terms & Conditions', link: '/terms-and-conditions' },
 ];
 
 const Footer = () => {

@@ -10,7 +10,7 @@ interface formData {
   email: string;
   phone: string;
   service: string;
-  budget: string;
+  plan: string;
   company?: string | undefined;
   details?: string | undefined;
 }
@@ -21,7 +21,7 @@ export const contactForm = async (formData: formData) => {
   const result = await contactValidation.safeParse(formData);
 
   if (!result.success) {
-    const { name, email, phone, service, budget } =
+    const { name, email, phone, service, plan } =
       result.error.flatten().fieldErrors;
     return {
       success: false,
@@ -30,12 +30,12 @@ export const contactForm = async (formData: formData) => {
         email: email && email[0],
         phone: phone && phone[0],
         service: service && service[0],
-        budget: budget && budget[0],
+        plan: plan && plan[0],
       },
     };
   }
 
-  const { budget, email, name, phone, service, company, details } = result.data;
+  const { plan, email, name, phone, service, company, details } = result.data;
 
   try {
     const oAuth2Client = new OAuth2(
@@ -61,7 +61,7 @@ export const contactForm = async (formData: formData) => {
         accessToken: accessToken?.token,
       },
     } as SMTPTransport.Options);
-
+    // codenix.agency@gmail.com
     await transporter.sendMail({
       from: `"Codenix" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_RECEIVER,
@@ -77,9 +77,44 @@ export const contactForm = async (formData: formData) => {
         <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Email</td>
         <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${email}</td>
       </tr>
+      <tr>
+        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Phone</td>
+        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${phone}</td>
+      </tr>
       <tr style="background-color: #51515141;">
-        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Budget</td>
-        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${budget}</td>
+        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Company</td>
+        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${company}</td>
+      </tr>
+      <tr>
+        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Service</td>
+        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${service}</td>
+      </tr>
+      <tr style="background-color: #51515141;">
+        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Plan</td>
+        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${plan}</td>
+      </tr>
+      <tr style="background-color: #51515141;">
+        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Details</td>
+        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 3px; ">${details}</td>
+      </tr>
+    </table>
+  </div>`,
+    });
+    // sami@codenix.agency
+    await transporter.sendMail({
+      from: `"Codenix" <${process.env.EMAIL_USER}>`,
+      to: 'sami@codenix.agency',
+      subject: `Contact Request - ${name}`,
+      replyTo: email,
+      html: `<div style=" background-color: #ffffff;">
+    <table style="margin-top: 10px; font-size: 25px; border-collapse: collapse;">
+      <tr style="background-color: #51515141;">
+        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Name</td>
+        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${name}</td>
+      </tr>
+      <tr>
+        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Email</td>
+        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${email}</td>
       </tr>
       <tr>
         <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Phone</td>
@@ -92,6 +127,10 @@ export const contactForm = async (formData: formData) => {
       <tr>
         <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Service</td>
         <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${service}</td>
+      </tr>
+      <tr style="background-color: #51515141;">
+        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Plan</td>
+        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${plan}</td>
       </tr>
       <tr style="background-color: #51515141;">
         <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Details</td>

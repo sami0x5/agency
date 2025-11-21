@@ -11,12 +11,12 @@ const faqs: {
   {
     question: 'How much should I expect to pay for a website?',
     answer:
-      "The cost to build a website can vary greatly depending on the complexity, number of pages, required features, and the overall design experience. Traditional agencies may charge anywhere from $10,000 to $50,000 for a modern site, with complex platforms going above $200,000. Unlike traditional agencies, we aim to provide the same level of quality and in many ways, even higher quality at a more accessible rate — typically $3,000 to $15,000 for a modern website, with higher pricing for feature-rich builds. Think of it as an investment in your business's long-term growth and success.",
+      "The cost to build a website can vary greatly depending on the complexity, number of pages, required features, and the overall design experience. Traditional agencies may charge anywhere from $10,000 to $50,000 for a modern site, with complex platforms going above $200,000. Unlike traditional agencies, we aim to provide the same level of quality and in many ways, even higher quality at a more accessible rate — typically $3,000 to $15,000 or $250/mo for a modern website, with higher pricing for feature-rich builds. Think of it as an investment in your business's long-term growth and success.",
   },
   {
     question: 'How long does it take to build a website?',
     answer:
-      'The time it takes to build a website depends on its complexity, the scope of work, and how fast you give feedback during the project. Simple websites can often be completed in 1-4 weeks, while more complex platforms with advanced features or integrations may take 2-3 months or longer.',
+      'The time it takes to build a website depends on its complexity, the scope of work, and how fast you give feedback during the project. Standard business websites can often be completed in 1-4 weeks, while more complex platforms with advanced features or integrations may take 2-3 months or longer.',
   },
   {
     question: 'What results can I expect after launching my website?',

@@ -1,6 +1,6 @@
 import SectionHeader from '@/components/SectionHeader';
 import React from 'react';
-import { CircleAlert, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 import dotBg from '@/public/dot-bg.jpg';
 import Link from 'next/link';
 

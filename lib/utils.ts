@@ -27,8 +27,8 @@ export const contactValidation = z.object({
   service: z.string().refine(val => val !== 'placeholder', {
     message: 'You must select a service.',
   }),
-  budget: z.string().refine(val => val !== 'placeholder', {
-    message: 'You must select a budget.',
+  plan: z.string().refine(val => val !== 'placeholder', {
+    message: 'You must select a plan.',
   }),
   details: z.string().trim().optional(),
 });

@@ -17,7 +17,7 @@ export type ErrorType = {
   email: string | undefined;
   phone: string | undefined;
   service: string | undefined;
-  budget: string | undefined;
+  plan: string | undefined;
   company?: string | undefined;
   details?: string | undefined;
 };
@@ -31,14 +31,14 @@ const ContactForm = () => {
     email: string;
     company: string;
     service: string;
-    budget: string;
+    plan: string;
     details: string;
   }>({
     name: '',
     email: '',
     company: '',
     service: 'placeholder',
-    budget: 'placeholder',
+    plan: 'placeholder',
     details: '',
   });
   const [errors, setErrors] = useState<ErrorType>({
@@ -47,7 +47,7 @@ const ContactForm = () => {
     company: '',
     service: '',
     phone: '',
-    budget: '',
+    plan: '',
     details: '',
   });
   const [onChangeErrorChecking, setOnChangeErrorChecking] = useState(false);
@@ -61,7 +61,7 @@ const ContactForm = () => {
       const formInputData = { ...formData, phone: phoneNumber };
       const result = contactValidation.safeParse(formInputData);
       if (!result.success) {
-        const { name, email, phone, service, budget } =
+        const { name, email, phone, service, plan } =
           result.error.flatten().fieldErrors;
         // set error message
         setErrors(prev => {
@@ -71,7 +71,7 @@ const ContactForm = () => {
             email: email && email[0],
             phone: phone && phone[0],
             service: service && service[0],
-            budget: budget && budget[0],
+            plan: plan && plan[0],
           };
         });
       } else {
@@ -82,7 +82,7 @@ const ContactForm = () => {
             company: '',
             service: '',
             phone: '',
-            budget: '',
+            plan: '',
             details: '',
           };
         });
@@ -114,7 +114,7 @@ const ContactForm = () => {
     const formInputData = { ...formData, phone: phoneNumber };
     const result = contactValidation.safeParse(formInputData);
     if (!result.success) {
-      const { name, email, phone, service, budget } =
+      const { name, email, phone, service, plan } =
         result.error.flatten().fieldErrors;
       // set error message
       setErrors(prev => {
@@ -124,7 +124,7 @@ const ContactForm = () => {
           email: email && email[0],
           phone: phone && phone[0],
           service: service && service[0],
-          budget: budget && budget[0],
+          plan: plan && plan[0],
         };
       });
       setOnChangeErrorChecking(true);
@@ -136,7 +136,7 @@ const ContactForm = () => {
           company: '',
           service: '',
           phone: '',
-          budget: '',
+          plan: '',
           details: '',
         };
       });
@@ -148,7 +148,7 @@ const ContactForm = () => {
           email: '',
           company: '',
           service: 'placeholder',
-          budget: 'placeholder',
+          plan: 'placeholder',
           details: '',
         });
         setPhoneNumber(undefined);
@@ -275,30 +275,29 @@ const ContactForm = () => {
               </option>
               <option value="business">Business Website</option>
               <option value="e-commerce">E-commerce Website</option>
-              <option value="redesign">Website Redesign</option>
               <option value="other">Other</option>
             </select>
           </InputField>
-          {/* service type */}
+          {/* Plan Type */}
           <InputField
-            error={errors.budget}
-            value={formData.budget}
+            error={errors.plan}
+            value={formData.plan}
             handleChange={handleChange}
-            name="budget"
+            name="plan"
             required
-            label="Service type"
+            label="Plan type"
             autoComplete=""
             customInput>
             <select
-              name="budget"
-              value={formData.budget}
+              name="plan"
+              value={formData.plan}
               onChange={e => handleChange(e)}
               className="border-2 border-black/30 rounded-md h-12 p-2 mt-1">
               <option value="placeholder" disabled>
-                Select a service type
+                Choose an option
               </option>
-              <option value="monthly">monthly</option>
-              <option value="one-time">onetime</option>
+              <option value="monthly">Monthly Subscription </option>
+              <option value="one-time">One-time Project</option>
               <option value="not-sure">Not sure / Need consultation</option>
             </select>
           </InputField>
