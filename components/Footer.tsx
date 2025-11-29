@@ -23,7 +23,7 @@ const Footer = () => {
           </h2>
           <div className="flex gap-2 justify-center items-center">
             {/* facebook */}
-            <Link href="https://www.facebook.com/codenix.agency">
+            <Link href="https://www.facebook.com/thecodenix.agency">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"
