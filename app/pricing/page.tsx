@@ -74,7 +74,7 @@ const pricingTiers: {
 
 export const metadata: Metadata = {
   title: 'Pricing & Packages | Codenix',
-  description: `Discover Codenix's starting prices for websites, MVPs, e-commerce, and SEO services. Custom projects may vary — get a quote tailored to your business.`,
+  description: `Discover Codenix's starting prices for business website and e-commerce services. Custom projects may vary — get a quote tailored to your business.`,
 };
 
 const page = () => {
@@ -203,7 +203,7 @@ const page = () => {
                   } mt-5 text-sm italic `}>
                   <span className="text-red-500">*</span>
                   <span className="opacity-90">
-                    12-month minimum contract, then month-to-month after that.
+                    6-month minimum contract, then month-to-month after that.
                   </span>
                 </p>
               </div>

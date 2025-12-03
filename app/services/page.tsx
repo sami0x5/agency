@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import React from 'react';
 
 export const metadata: Metadata = {
-  title: 'Website Design, Development & SEO Services | Codenix',
+  title: 'Website Design and Development Services | Codenix',
   description:
     'A full-service agency offering web design, development, and SEO tailored to your business.',
 };
