@@ -1,6 +1,6 @@
 import SectionHeader from '@/components/SectionHeader';
 import React from 'react';
-import { Check } from 'lucide-react';
+import { Ban, Check } from 'lucide-react';
 import dotBg from '@/public/dot-bg.jpg';
 import Link from 'next/link';
 
@@ -10,65 +10,115 @@ import * as motion from 'motion/react-client';
 
 const pricingTiers: {
   serviceName: string;
-
   price: number;
-  included: string[];
+  included: { item: string; isIncluded: boolean }[];
   addOns: string[];
+  noteText: string;
 }[] = [
   {
     serviceName: 'Business Website',
     price: 3000,
     included: [
-      '5 Custom Pages',
-      'Fully responsive, fast, SEO-optimized',
-      'Premium modern UI/UX design',
-      'Unlimited Edits & Updates (within project scope)',
-      'Analytics Dashboard: View visitors, page views, and user behavior',
-      'Hosting ($25/mo)',
-      'Maintenance ($50/mo)',
-      '24/7 Support',
+      { item: '5 Custom Pages', isIncluded: true },
+      {
+        item: 'Fully responsive, fast, performance-optimized',
+        isIncluded: true,
+      },
+      {
+        item: 'Complete SEO Optimization',
+        isIncluded: true,
+      },
+      { item: 'Premium modern UI/UX design', isIncluded: true },
+      {
+        item: 'Unlimited Edits & Updates (within project scope)',
+        isIncluded: false,
+      },
+      {
+        item: 'Analytics Dashboard: View visitors, page views, and user behavior',
+        isIncluded: true,
+      },
+      { item: 'Hosting ($25/mo)', isIncluded: true },
+      { item: 'Maintenance', isIncluded: false },
+      { item: '24/7 Support', isIncluded: true },
     ],
     addOns: [
       '+ Extra Page: $250 per page',
       '+ Blog: $350 per blog',
       '+ Advanced custom features priced separately',
     ],
+    noteText:
+      'Edits, Updates & Maintenance available at $75/hr (1-hour minimum)',
   },
   {
     serviceName: 'Business Website',
     price: 250,
     included: [
-      '5 Custom Pages',
-      'Fully responsive, fast, SEO-optimized',
-      'Premium modern UI/UX design',
-      'Unlimited Edits & Updates (within project scope)',
-      'Analytics Dashboard: View visitors, page views, and user behavior',
-      'Hosting (free)',
-      'Maintenance (free)',
-      '24/7 Support',
+      { item: '5 Custom Pages', isIncluded: true },
+      {
+        item: 'Fully responsive, fast, performance-optimized',
+        isIncluded: true,
+      },
+      {
+        item: 'Complete SEO Optimization',
+        isIncluded: true,
+      },
+      { item: 'Premium modern UI/UX design', isIncluded: true },
+      {
+        item: 'Unlimited Edits & Updates (within project scope)',
+        isIncluded: true,
+      },
+      {
+        item: 'Analytics Dashboard: View visitors, page views, and user behavior',
+        isIncluded: true,
+      },
+      { item: 'Hosting (free)', isIncluded: true },
+      { item: 'Maintenance', isIncluded: true },
+      { item: '24/7 Support', isIncluded: true },
     ],
     addOns: [
       '+ Extra Page: $250 per page',
       '+ Blog: $350 per blog',
       '+ Advanced custom features priced separately',
     ],
+    noteText: '6-month minimum contract, then month-to-month after that.',
   },
   {
     serviceName: 'E-commerce Website',
     price: 8000,
     included: [
-      'Custom E-Commerce Website',
-      'Fully responsive, fast, SEO-optimized',
-      'Premium modern UI/UX design',
-      'CMS/Admin Dashboard: Easily manage products, pages, orders, and content',
-      'Secure checkout & payment gateway integration (Stripe, PayPal, etc.)',
-      'Unlimited Edits & Updates (within project scope)',
-      'Analytics Dashboard: View visitors, page views, and user behavior',
-      'Hosting ($50/mo)',
-      'Maintenance ($200/mo)',
-      '24/7 Support',
+      { item: 'Custom E-Commerce Website', isIncluded: true },
+      {
+        item: 'Fully responsive, fast, performance-optimized',
+        isIncluded: true,
+      },
+      {
+        item: 'Complete SEO Optimization',
+        isIncluded: true,
+      },
+      { item: 'Premium modern UI/UX design', isIncluded: true },
+      {
+        item: 'CMS/Admin Dashboard: Easily manage products, pages, orders, and content',
+        isIncluded: true,
+      },
+      {
+        item: 'Secure checkout & payment gateway integration (Stripe, PayPal, etc.)',
+        isIncluded: true,
+      },
+      {
+        item: 'Unlimited Edits & Updates (within project scope)',
+        isIncluded: false,
+      },
+      {
+        item: 'Analytics Dashboard: View visitors, page views, and user behavior',
+        isIncluded: true,
+      },
+      { item: 'Hosting ($50/mo)', isIncluded: true },
+      { item: 'Maintenance', isIncluded: false },
+      { item: '24/7 Support', isIncluded: true },
     ],
     addOns: ['+ Advanced custom features priced separately'],
+    noteText:
+      'Edits, Updates & Maintenance available at $75/hr (1-hour minimum)',
   },
 ];
 
@@ -179,11 +229,17 @@ const page = () => {
                 <p className="mt-5">Included:</p>
                 <ul className="mt-2 flex flex-col gap-2 text-sm ml-2 ">
                   {tier.included.map(feature => (
-                    <li key={feature} className="flex gap-1 items-center  ">
+                    <li
+                      key={feature.item}
+                      className="flex gap-1 items-center  ">
                       <span>
-                        <Check color="#0dff00" size={18} />
+                        {feature.isIncluded ? (
+                          <Check color="#0dff00" size={18} />
+                        ) : (
+                          <Ban className="opacity-75" size={18} />
+                        )}
                       </span>
-                      <span className="opacity-75">{feature}</span>
+                      <span className="opacity-75">{feature.item}</span>
                     </li>
                   ))}
                 </ul>
@@ -196,15 +252,10 @@ const page = () => {
                     </li>
                   ))}
                 </ul>
-                {/* contract */}
-                <p
-                  className={`${
-                    index == 1 ? '' : 'hidden'
-                  } mt-5 text-sm italic `}>
+                {/* note text */}
+                <p className={`mt-5 text-sm italic `}>
                   <span className="text-red-500">*</span>
-                  <span className="opacity-90">
-                    6-month minimum contract, then month-to-month after that.
-                  </span>
+                  <span className="opacity-90">{tier.noteText}</span>
                 </p>
               </div>
             </div>

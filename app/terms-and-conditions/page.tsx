@@ -22,11 +22,11 @@ const page = () => {
       <p className="mt-8">
         Last Updated:{' '}
         <time className="italic" dateTime="2025-11-21">
-          November 21, 2025
+          December 08, 2025
         </time>
       </p>
 
-      {/* 1 */}
+      {/* 1. Services Provided */}
       <section className="mt-8">
         <h2 className="text-2xl">1. Services Provided</h2>
         <p className="max-w-4xl ml-8">
@@ -38,7 +38,7 @@ const page = () => {
 
       <hr className="mt-2 text-white/40" />
 
-      {/* 2 */}
+      {/* 2. One-Time Website Projects */}
       <section className="mt-8">
         <h2 className="text-2xl">2. One-Time Website Projects</h2>
         <div className="mt-2 ml-8">
@@ -56,9 +56,8 @@ const page = () => {
           <ul className="ml-8 max-w-4xl list-disc">
             {[
               'Hosting: $25/month (for business website)',
-              'Maintenance & support: $50/month (for business website)',
-              'E-commerce hosting: $50/month (for e-commerce website)',
-              'E-commerce maintenance & support: $200/month (for e-commerce website)',
+              'Hosting: $50/month (for e-commerce website)',
+              'Edits, Updates & Maintenance: $75/hr (1-hour minimum)',
             ].map((item, index) => (
               <li key={index}>{item} </li>
             ))}
@@ -73,7 +72,7 @@ const page = () => {
       </section>
       <hr className="mt-2 text-white/40" />
 
-      {/* 3 */}
+      {/* 3. Subscription Website Plans */}
       <section className="mt-8">
         <h2 className="text-2xl">3. Subscription Website Plans</h2>
         <div className="mt-2 ml-8">
@@ -130,7 +129,7 @@ const page = () => {
       </section>
       <hr className="mt-2 text-white/40" />
 
-      {/* 4 */}
+      {/*4. Edits & Updates */}
       <section className="mt-8">
         <h2 className="text-2xl">4. Edits & Updates</h2>
         {/* 4.1 */}
@@ -166,7 +165,7 @@ const page = () => {
       </section>
       <hr className="mt-2 text-white/40" />
 
-      {/* 5 */}
+      {/* 5. Maintenance*/}
       <section className="mt-8">
         <h2 className="text-2xl">5. Maintenance</h2>
         {/* 5.1 */}
@@ -205,7 +204,7 @@ const page = () => {
       </section>
       <hr className="mt-2 text-white/40" />
 
-      {/* 6 */}
+      {/*6. Payments*/}
       <section className="mt-8">
         <h2 className="text-2xl">6. Payments</h2>
         {/* 6.1 */}
@@ -246,7 +245,7 @@ const page = () => {
       </section>
       <hr className="mt-2 text-white/40" />
 
-      {/* 7 */}
+      {/* 7. Refund Policy */}
       <section className="mt-8">
         <h2 className="text-2xl">7. Refund Policy</h2>
         <div className="mt-2">
@@ -266,7 +265,7 @@ const page = () => {
       </section>
       <hr className="mt-2 text-white/40" />
 
-      {/* 8 */}
+      {/* 8. Termination of Services */}
       <section className="mt-8">
         <h2 className="text-2xl">8. Termination of Services</h2>
         {/* 8.1 */}
@@ -299,7 +298,7 @@ const page = () => {
       </section>
       <hr className="mt-2 text-white/40" />
 
-      {/* 9 */}
+      {/* 9. Liability Limitations */}
       <section className="mt-8">
         <h2 className="text-2xl">9. Liability Limitations</h2>
         {/* 9.1 */}
@@ -323,7 +322,7 @@ const page = () => {
       </section>
       <hr className="mt-2 text-white/40" />
 
-      {/* 10 */}
+      {/* 10. Contact */}
       <section className="mt-8">
         <h2 className="text-2xl">10. Contact</h2>
 
