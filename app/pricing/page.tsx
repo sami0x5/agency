@@ -43,7 +43,7 @@ const pricingTiers: {
     ],
     addOns: [
       '+ Extra Page: $250 per page',
-      '+ Blog: $350 per blog',
+      '+ Blog: $100 per blog',
       '+ Advanced custom features priced separately',
     ],
     noteText:
@@ -51,7 +51,7 @@ const pricingTiers: {
   },
   {
     serviceName: 'Business Website',
-    price: 250,
+    price: 175,
     included: [
       { item: '5 Custom Pages', isIncluded: true },
       {
@@ -77,7 +77,7 @@ const pricingTiers: {
     ],
     addOns: [
       '+ Extra Page: $250 per page',
-      '+ Blog: $350 per blog',
+      '+ Blog: $100 per blog',
       '+ Advanced custom features priced separately',
     ],
     noteText: '6-month minimum contract, then month-to-month after that.',
