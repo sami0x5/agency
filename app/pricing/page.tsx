@@ -37,7 +37,11 @@ const pricingTiers: {
         item: 'Analytics Dashboard: View visitors, page views, and user behavior',
         isIncluded: true,
       },
-      { item: 'Hosting ($25/mo)', isIncluded: true },
+      {
+        item: 'Full Ownership (You Own Everything)',
+        isIncluded: true,
+      },
+      { item: 'Hosting', isIncluded: false },
       { item: 'Maintenance', isIncluded: false },
       { item: '24/7 Support', isIncluded: true },
     ],
@@ -47,7 +51,7 @@ const pricingTiers: {
       '+ Advanced custom features priced separately',
     ],
     noteText:
-      'Edits, Updates & Maintenance available at $75/hr (1-hour minimum)',
+      'Edits, Updates & Maintenance available at $50/hr (1-hour minimum)',
   },
   {
     serviceName: 'Business Website',
@@ -70,6 +74,10 @@ const pricingTiers: {
       {
         item: 'Analytics Dashboard: View visitors, page views, and user behavior',
         isIncluded: true,
+      },
+      {
+        item: 'Full Ownership (You Own Everything)',
+        isIncluded: false,
       },
       { item: 'Hosting (free)', isIncluded: true },
       { item: 'Maintenance', isIncluded: true },
@@ -112,13 +120,17 @@ const pricingTiers: {
         item: 'Analytics Dashboard: View visitors, page views, and user behavior',
         isIncluded: true,
       },
-      { item: 'Hosting ($50/mo)', isIncluded: true },
+      {
+        item: 'Full Ownership (You Own Everything)',
+        isIncluded: true,
+      },
+      { item: 'Hosting', isIncluded: false },
       { item: 'Maintenance', isIncluded: false },
       { item: '24/7 Support', isIncluded: true },
     ],
     addOns: ['+ Advanced custom features priced separately'],
     noteText:
-      'Edits, Updates & Maintenance available at $75/hr (1-hour minimum)',
+      'Edits, Updates & Maintenance available at $50/hr (1-hour minimum)',
   },
 ];
 
