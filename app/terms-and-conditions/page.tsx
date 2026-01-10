@@ -54,20 +54,12 @@ const page = () => {
             Clients who purchase a one-time website must pay:
           </p>
           <ul className="ml-8 max-w-4xl list-disc">
-            {[
-              'Hosting: $25/month (for business website)',
-              'Hosting: $50/month (for e-commerce website)',
-              'Edits, Updates & Maintenance: $75/hr (1-hour minimum)',
-            ].map((item, index) => (
-              <li key={index}>{item} </li>
-            ))}
+            {['Edits, Updates & Maintenance: $50/hr (1-hour minimum)'].map(
+              (item, index) => (
+                <li key={index}>{item} </li>
+              )
+            )}
           </ul>
-          <p className="ml-2 italic">These services are optional.</p>
-          <p className="ml-2">
-            <span className="text-red-500">*</span>
-            If the client chooses not to pay, they are responsible for hosting
-            and managing the website on their own.
-          </p>
         </div>
       </section>
       <hr className="mt-2 text-white/40" />
