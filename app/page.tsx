@@ -11,7 +11,7 @@ export default function Home() {
       <Hero />
       <LogoTicker />
       <Services />
-      <Projects pillTitle="Our Latest Work" />
+      <Projects pillTitle="Our Work" />
       <Faqs classNameSection="sticky " classNameMt="h-6" />
       {/* next section faqs */}
       <ContactUs className="rounded-t-[3rem]" classNameMt="md:mt-5 lg:mt-20" />

@@ -10,7 +10,6 @@ const navLinks: { title: string; link: string; id: string }[] = [
   { title: 'Services', link: '/services', id: 'fdddfa44' },
   { title: 'Work', link: '/work', id: 'fdf3543fdafa' },
   { title: 'FAQs', link: '/faqs', id: 'dfk3i343434' },
-  { title: 'Pricing', link: '/pricing', id: 'fdf354gf3gr3a' },
 ];
 
 const Navbar = () => {

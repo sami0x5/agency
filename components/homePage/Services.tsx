@@ -8,19 +8,19 @@ import ServiceAnimation from '../ui/ServiceAnimation';
 
 const services = [
   {
-    title: 'Business Websites',
+    title: 'AI Agent Installation',
     description:
-      'Give your business a professional online presence. We create responsive, modern websites that showcase your brand and turn visitors into customers.',
+      'Get OpenClaw or Hermes Agent running on your system, properly. We handle the full setup, configuration, and testing. You just tell us what you need it to do.',
   },
   {
-    title: 'E-commerce Websites',
+    title: 'Workflow Automation',
     description:
-      'Launch your online store with a fast, secure, and user-friendly shopping experience. From product pages to payment gateways, we build stores that help you sell with ease.',
+      'We look at how your business operates and automate the parts that eat your time. Customer follow-ups, lead handling, data processing, internal tasks. It all runs around the clock so nothing slips and you can focus on what actually matters. We build the workflows so you don\'t have to.',
   },
   {
-    title: 'SEO',
+    title: 'Agent Training and Custom Config',
     description:
-      'Get found online. We set up SEO-friendly structures, optimize content, and provide you with an SEO guide to grow your visibility and attract the right audience.',
+      'Every business runs differently. We connect your agent to your existing tools, feed it your processes, and tune it until it works the way your business actually works, not some generic out-of-the-box version.',
   },
 ];
 
@@ -32,7 +32,7 @@ const Services = ({ className }: { className?: string }) => {
   return (
     <section className="lg:p-12  overflow-clip relative p-6 md:p-0 ">
       <SectionHeader
-        title="Our Services"
+        title="What We Do"
         className={`z-50 pt-12  text-lg ${className}`}
       />
       <div className="relative md:grid md:grid-cols-2 -mt-30  ">

@@ -13,12 +13,13 @@ const Hero = () => {
       {/* page content */}
       <div className="absolute inset-0 flex items-center flex-col top-36  ">
         <h1 className="text-4xl lg:text-7xl md:text-6xl text-center  max-w-5xl tracking-tight leading-tight font-semibold stroke-1 drop-shadow-xl drop-shadow-gray-950 bg-gradient-to-r from-gray-400/75 via-white/80 to-gray-400 bg-clip-text text-transparent z-20">
-          A Web Agency That Builds What Matters.
+          We Set Up AI Agents That Actually Work.
         </h1>
 
         <p className="lg:text-2xl md:text-xl text-md max-w-5xl text-center lg:mt-6 mt-3 text-white/60 font-light italic drop-shadow-lg drop-shadow-gray-950  z-20">
-          A full-service agency offering web design, development, and SEO
-          tailored to your business.
+          From OpenClaw to Hermes, we handle the full installation,
+          configuration, and automation. The system runs 24/7, so you can get
+          more done without putting in more hours.
         </p>
         {/* cta button */}
         <div className="mt-10 flex gap-8 z-20 items-center">

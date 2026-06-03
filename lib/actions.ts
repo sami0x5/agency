@@ -37,6 +37,21 @@ export const contactForm = async (formData: formData) => {
 
   const { plan, email, name, phone, service, company, details } = result.data;
 
+  const serviceLabels: Record<string, string> = {
+    'openclaw-setup': 'OpenClaw Agent Setup',
+    'openclaw-automation': 'OpenClaw + Full Business Automation',
+    'hermes-setup': 'Hermes Agent Setup',
+    'hermes-automation': 'Hermes + Full Business Automation',
+    'not-sure': 'Not sure yet, I need guidance',
+  };
+  const timelineLabels: Record<string, string> = {
+    'asap': 'As soon as possible',
+    'few-weeks': 'Within the next few weeks',
+    'exploring': 'Just exploring for now',
+  };
+  const serviceLabel = serviceLabels[service] ?? service;
+  const timelineLabel = timelineLabels[plan] ?? plan;
+
   try {
     const oAuth2Client = new OAuth2(
       process.env.CLIENT_ID,
@@ -61,10 +76,10 @@ export const contactForm = async (formData: formData) => {
         accessToken: accessToken?.token,
       },
     } as SMTPTransport.Options);
-    // codenix.agency@gmail.com
+    
     await transporter.sendMail({
       from: `"Codenix" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_RECEIVER,
+      to: "sami@codenix.agency, kavi@codenix.agency",
       subject: `Contact Request - ${name}`,
       replyTo: email,
       html: `<div style=" background-color: #ffffff;">
@@ -87,11 +102,11 @@ export const contactForm = async (formData: formData) => {
       </tr>
       <tr>
         <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Service</td>
-        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${service}</td>
+        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${serviceLabel}</td>
       </tr>
       <tr style="background-color: #51515141;">
-        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Plan</td>
-        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${plan}</td>
+        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Timeline</td>
+        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${timelineLabel}</td>
       </tr>
       <tr style="background-color: #51515141;">
         <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Details</td>
@@ -126,11 +141,11 @@ export const contactForm = async (formData: formData) => {
       </tr>
       <tr>
         <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Service</td>
-        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${service}</td>
+        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${serviceLabel}</td>
       </tr>
       <tr style="background-color: #51515141;">
-        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Plan</td>
-        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${plan}</td>
+        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Timeline</td>
+        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${timelineLabel}</td>
       </tr>
       <tr style="background-color: #51515141;">
         <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Details</td>

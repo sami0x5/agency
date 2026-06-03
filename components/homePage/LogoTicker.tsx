@@ -1,48 +1,30 @@
 'use client';
-import Image from 'next/image';
 import React from 'react';
-import Adidas from '../../public/companyLogos/adidas.png';
-import Blackberry from '../../public/companyLogos/blackberry-seeklogo.png';
-import Chanel from '../../public/companyLogos/chanel-2-logo-svgrepo-com.png';
-import Giant from '../../public/companyLogos/giant-bicycles-logo-svgrepo-com.png';
-import TuneIn from '../../public/companyLogos/tunein-logo-svgrepo-com.png';
-import Oracle from '../../public/companyLogos/oracle-6-logo-svgrepo-com.png';
 import { motion } from 'motion/react';
+import {
+  IconBrandTelegram,
+  IconBrandWhatsapp,
+  IconBrandDiscord,
+  IconBrandSlack,
+  IconRobot,
+  IconDiamondFilled,
+} from '@tabler/icons-react';
 
-const logos = [
-  { id: 1, src: Adidas, alt: 'Adidas Logo' },
-  {
-    id: 2,
-    src: Blackberry,
-
-    alt: 'Blackberry Logo',
-  },
-  { id: 6, src: Oracle, alt: 'Oracle Logo' },
-  {
-    id: 3,
-    src: Chanel,
-
-    alt: 'Chanel Logo',
-  },
-  {
-    id: 4,
-    src: Giant,
-
-    alt: 'Giant Logo',
-  },
-  {
-    id: 5,
-    src: TuneIn,
-
-    alt: 'Tunein Logo',
-  },
+const tools = [
+  { id: 1, label: 'OpenClaw', Icon: IconRobot },
+  { id: 3, label: 'Telegram', Icon: IconBrandTelegram },
+  { id: 4, label: 'WhatsApp', Icon: IconBrandWhatsapp },
+  { id: 2, label: 'Hermes Agent', Icon: IconRobot },
+  { id: 5, label: 'Discord', Icon: IconBrandDiscord },
+  { id: 6, label: 'Slack', Icon: IconBrandSlack },
+  { id: 7, label: 'Obsidian', Icon: IconDiamondFilled },
 ];
 
 const LogoTicker = () => {
   return (
     <section className="overflow-hidden px-12 py-6 md:py-12">
       <p className="mt-7 md:mt-5 lg:mt-0 text-center text-xl text-white/60">
-        We follow proven methods
+        We build with the best tools
       </p>
       <div className="flex overflow-hidden mask-[linear-gradient(to_right,transparent,black_20%,black_80%,transparent)] mt-2 lg:mt-5">
         <motion.div
@@ -52,15 +34,15 @@ const LogoTicker = () => {
           className="flex-none flex gap-24 pr-24 items-center">
           {Array.from({ length: 2 }).map((_, index) => (
             <React.Fragment key={index}>
-              {logos.map(logo => (
-                <Image
-                  key={logo.id}
-                  className="invert "
-                  width={155}
-                  height={34}
-                  src={logo.src}
-                  alt={logo.alt}
-                />
+              {tools.map(tool => (
+                <div
+                  key={tool.id}
+                  className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity">
+                  <tool.Icon size={48} className="text-white" />
+                  <span className="text-white text-2xl font-medium whitespace-nowrap">
+                    {tool.label}
+                  </span>
+                </div>
               ))}
             </React.Fragment>
           ))}

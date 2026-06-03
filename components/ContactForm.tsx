@@ -168,7 +168,7 @@ const ContactForm = () => {
     <div className=" bg-gradient-to-r from-[#000428] to-[#004e92] max-w-7xl lg:grid lg:grid-cols-5  text-white mt-5 pt-8 sm:p-8 sm:rounded-2xl">
       <div className="lg:col-span-2">
         <h2 className=" text-4xl lg:text-5xl font-semibold tracking-tight leading-14 text-center lg:text-left p-4 sm:p-0">
-          Have a project idea in mind? <br /> Let&apos;s get started
+          Ready to get your AI agent running? <br /> Let&apos;s talk.
         </h2>
         {/* Founder quote */}
         <div className="hidden  lg:mt-20 lg:flex gap-2 items-start">
@@ -183,13 +183,13 @@ const ContactForm = () => {
             </div>
             <p className="mt-2 lg:mt-4 text-xl lg:text-2xl font-medium">Sami</p>
             <p className="text-center text-xs lg:text-sm italic text-nowrap opacity-75">
-              Founder of <br /> <b>Codenix</b>
+              Co-founder of <br /> <b>Codenix</b>
             </p>
           </div>
 
           <q className="mt-5 lg:mt-3 text-lg font-medium italic">
-            From strategy to execution, we design & develop transformative
-            solutions for brands ready to make an impact.
+            We don&apos;t just install agents. We make sure they actually work
+            the way your business needs them to.
           </q>
         </div>
       </div>
@@ -234,11 +234,11 @@ const ContactForm = () => {
             customInput>
             <PhoneInput
               name="phone"
-              placeholder="+1 234 567 8900"
+              placeholder="+44 20 7946 0192"
               international
               required
               value={phoneNumber}
-              defaultCountry="US"
+              defaultCountry="GB"
               onChange={setPhoneNumber}
               className="border-2 border-black/30 rounded-md h-12 p-2 mt-1 focus-within:border-black"
             />
@@ -271,11 +271,13 @@ const ContactForm = () => {
               onChange={e => handleChange(e)}
               className="border-2 border-black/30 rounded-md h-12 p-2 mt-1">
               <option value="placeholder" disabled>
-                Select a Service
+                What do you need?
               </option>
-              <option value="business">Business Website</option>
-              <option value="e-commerce">E-commerce Website</option>
-              <option value="other">Other</option>
+              <option value="openclaw-setup">OpenClaw Agent Setup</option>
+              <option value="openclaw-automation">OpenClaw + Full Business Automation</option>
+              <option value="hermes-setup">Hermes Agent Setup</option>
+              <option value="hermes-automation">Hermes + Full Business Automation</option>
+              <option value="not-sure">Not sure yet, I need guidance</option>
             </select>
           </InputField>
           {/* Plan Type */}
@@ -285,7 +287,7 @@ const ContactForm = () => {
             handleChange={handleChange}
             name="plan"
             required
-            label="Plan type"
+            label="When do you want to start?"
             autoComplete=""
             customInput>
             <select
@@ -296,9 +298,9 @@ const ContactForm = () => {
               <option value="placeholder" disabled>
                 Choose an option
               </option>
-              <option value="monthly">Monthly Subscription </option>
-              <option value="one-time">One-time Project</option>
-              <option value="not-sure">Not sure / Need consultation</option>
+              <option value="asap">As soon as possible</option>
+              <option value="few-weeks">Within the next few weeks</option>
+              <option value="exploring">Just exploring for now</option>
             </select>
           </InputField>
           {/* Project details */}
@@ -316,7 +318,7 @@ const ContactForm = () => {
               rows={4}
               value={formData.details}
               onChange={e => handleChange(e)}
-              placeholder="Describe your project, goals, and requirements…"
+              placeholder="Describe what you are trying to automate, what tools your business uses, and any specific requirements."
               name="details"
               className="border-2 border-black/30 rounded-md p-2 mt-1 "></textarea>
           </InputField>

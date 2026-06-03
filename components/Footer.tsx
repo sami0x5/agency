@@ -5,10 +5,8 @@ const quickLinks: { linkName: string; link: string }[] = [
   { linkName: 'Home', link: '/' },
   { linkName: 'Services', link: '/services' },
   { linkName: 'Work', link: '/work' },
-  { linkName: 'Pricing', link: '/pricing' },
   { linkName: 'Contact', link: '/contact' },
   { linkName: 'FAQs', link: '/faqs' },
-  { linkName: 'Terms & Conditions', link: '/terms-and-conditions' },
 ];
 
 const Footer = () => {
@@ -18,8 +16,8 @@ const Footer = () => {
         <div className="flex flex-col items-start gap-3 md:gap-6 mb-12 md:mb-0">
           <Logo />
           <h2 className="max-w-md  text-lg opacity-80">
-            A full-service Web Agency focusing on building functional, simple,
-            human-centered digital products for future.
+            A full-service AI agency that installs, configures, and automates
+            intelligent agents for businesses ready to actually work smarter.
           </h2>
           <div className="flex gap-2 justify-center items-center">
             {/* facebook */}

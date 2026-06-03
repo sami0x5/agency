@@ -9,34 +9,34 @@ const faqs: {
   answer: string;
 }[] = [
   {
-    question: 'How much should I expect to pay for a website?',
+    question: 'How much does it cost to set up an AI agent?',
     answer:
-      "The cost to build a website can vary greatly depending on the complexity, number of pages, required features, and the overall design experience. Traditional agencies may charge anywhere from $10,000 to $50,000 for a modern site, with complex platforms going above $200,000. Unlike traditional agencies, we aim to provide the same level of quality and in many ways, even higher quality at a more accessible rate — typically $3,000 to $15,000 or $175/mo for a modern website, with higher pricing for feature-rich builds. Think of it as an investment in your business's long-term growth and success.",
+      'The cost depends on what you need. A basic OpenClaw or Hermes setup for small business use is straightforward, while complex multi-agent workflows with custom integrations take more work. Unlike hiring a dev team or paying for enterprise AI software, we keep it accessible. Reach out and we will give you a straight number based on what you are looking to do.',
   },
   {
-    question: 'How long does it take to build a website?',
+    question: 'How long does the setup take?',
     answer:
-      'The time it takes to build a website depends on its complexity, the scope of work, and how fast you give feedback during the project. Standard business websites can often be completed in 1-4 weeks, while more complex platforms with advanced features or integrations may take 2-3 months or longer.',
+      'A standard agent installation is usually done within a day or two. If you need custom workflow automation on top of that, it depends on how many processes we are wiring up, but most business automation setups are completed within 1 to 2 weeks. We will give you a clear timeline before we start.',
   },
   {
-    question: 'What results can I expect after launching my website?',
+    question: 'What can an AI agent actually do for my business?',
     answer:
-      'Outcomes depend on factors like your industry, target audience, marketing efforts, the services you offer, and overall business goals. However, in most cases, businesses notice stronger online presence, higher visibility, more customer trust, and more conversions.',
+      'Almost everything. Agents like OpenClaw and Hermes can handle scheduling, answer messages across WhatsApp, Telegram, and Slack, process data, run automated follow-ups, browse the web, and execute tasks on your machine, all without you touching it. The real value is everything it handles in the background while you are focused on other things.',
   },
   {
-    question: 'Do you offer website redesign services?',
+    question: 'Do I need to be technical to use this?',
     answer:
-      "Yes — we provide complete website redesign services. If your current site feels outdated, underperforms, or doesn't reflect your brand, we can upgrade it with a modern design, improved usability, and updated features to better connect with your customers.",
+      'Not at all. That is the whole point of what we do. We handle the technical side, installation, configuration, connecting everything together. Once it is running, using your agent is as simple as sending a message on WhatsApp or Telegram. We also walk you through how to work with it so you are comfortable from day one.',
   },
   {
-    question: 'Will my website be mobile-friendly?',
+    question: 'Which agent is right for me, OpenClaw or Hermes?',
     answer:
-      'Absolutely! All websites we build are fully responsive, which means they look and work great on mobile phones, tablets, and desktops.',
+      'It depends on your scale. OpenClaw is built for large-scale projects, multi-agent setups, and complex automations that need to run across many systems at once. Hermes is great out-of-the-box, self-improving, and works best for small to medium scale projects and as a personal AI assistant that gets smarter the longer it runs. We will recommend the right one after understanding your setup.',
   },
   {
-    question: 'Do you provide support after the website launches?',
+    question: 'Do you provide support after everything is set up?',
     answer:
-      'Absolutely. We provide ongoing 24/7 support to ensure your website stays online, secure, and running smoothly at all times. From hosting reliability to technical fixes, we handle everything so you never have to worry about your site.',
+      'Yes. Once your agent is live, we don\'t just hand it over and disappear. We provide ongoing support to make sure everything keeps running the way it should. And if you want to expand what your agent does down the line, we can help with that too.',
   },
 ];
 
@@ -93,9 +93,13 @@ const Faqs = ({
             <div className="absolute inset-0 bg-black/20 "></div>
             <div className="relative">
               <h3 className="text-2xl font-semibold">
-                Where can I find your pricing plans?
+                Not sure where to start?
               </h3>
-              <ArrowButton>View Pricing</ArrowButton>
+              <p className="mt-3 text-white/75 text-lg">
+                Tell us what your business does and what is taking up your time.
+                We will figure out the rest.
+              </p>
+              <ArrowButton>Talk to Us</ArrowButton>
             </div>
           </motion.div>
         </div>
