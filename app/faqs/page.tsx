@@ -2,8 +2,9 @@ import Faqs from '@/components/homePage/Faqs';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Frequently Asked Questions | Codenix',
-  description: `Find answers to common questions about Codenix's business website and e-commerce services. Get the clarity you need to start your project.`,
+  title: 'FAQs | Codenix',
+  description:
+    'Got questions about AI agent setup, workflow automation, or how Codenix works? Find answers to the most common questions here.',
 };
 
 const page = () => {

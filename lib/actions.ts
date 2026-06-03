@@ -115,46 +115,8 @@ export const contactForm = async (formData: formData) => {
     </table>
   </div>`,
     });
-    // sami@codenix.agency
-    await transporter.sendMail({
-      from: `"Codenix" <${process.env.EMAIL_USER}>`,
-      to: 'sami@codenix.agency',
-      subject: `Contact Request - ${name}`,
-      replyTo: email,
-      html: `<div style=" background-color: #ffffff;">
-    <table style="margin-top: 10px; font-size: 25px; border-collapse: collapse;">
-      <tr style="background-color: #51515141;">
-        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Name</td>
-        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${name}</td>
-      </tr>
-      <tr>
-        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Email</td>
-        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${email}</td>
-      </tr>
-      <tr>
-        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Phone</td>
-        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${phone}</td>
-      </tr>
-      <tr style="background-color: #51515141;">
-        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Company</td>
-        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${company}</td>
-      </tr>
-      <tr>
-        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Service</td>
-        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${serviceLabel}</td>
-      </tr>
-      <tr style="background-color: #51515141;">
-        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Timeline</td>
-        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">${timelineLabel}</td>
-      </tr>
-      <tr style="background-color: #51515141;">
-        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 5px; ">Details</td>
-        <td style="border: 2px solid rgba(0, 0, 0, 0.2); padding: 3px; ">${details}</td>
-      </tr>
-    </table>
-  </div>`,
-    });
-    console.log('sent successfully');
+    
+    
 
     return { success: true };
   } catch (err) {

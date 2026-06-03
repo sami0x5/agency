@@ -5,6 +5,7 @@ import LogoTicker from '@/components/homePage/LogoTicker';
 import Projects from '@/components/homePage/Projects';
 import Services from '@/components/homePage/Services';
 
+
 export default function Home() {
   return (
     <>

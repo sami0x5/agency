@@ -3,8 +3,9 @@ import { Metadata } from 'next';
 import React from 'react';
 
 export const metadata: Metadata = {
-  title: 'Our Work | Web Design & Development Projects | Codenix',
-  description: `Explore the projects we've built at Codenix. Modern, fast, and reliable websites designed to deliver results for your business.`,
+  title: 'Our Work | Codenix',
+  description:
+    'See real AI agent setups and workflow automations we have built for businesses. OpenClaw and Hermes in action.',
 };
 
 const page = () => {

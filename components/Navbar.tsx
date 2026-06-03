@@ -9,6 +9,7 @@ import { useState } from 'react';
 const navLinks: { title: string; link: string; id: string }[] = [
   { title: 'Services', link: '/services', id: 'fdddfa44' },
   { title: 'Work', link: '/work', id: 'fdf3543fdafa' },
+  { title: 'About', link: '/about', id: 'about-page-link' },
   { title: 'FAQs', link: '/faqs', id: 'dfk3i343434' },
 ];
 

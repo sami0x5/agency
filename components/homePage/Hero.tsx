@@ -29,7 +29,7 @@ const Hero = () => {
           <Link
             className="relative after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-full after:origin-bottom-right after:scale-x-0 dark:after:bg-blue-500 
       after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100 flex group w-fit text-blue-500 drop-shadow-md drop-shadow-black"
-            href="work">
+            href="/work">
             See Work
             <span className="group-hover:translate-x-1 transition-all delay-200">
               <ArrowRight />

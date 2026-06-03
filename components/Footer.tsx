@@ -5,6 +5,7 @@ const quickLinks: { linkName: string; link: string }[] = [
   { linkName: 'Home', link: '/' },
   { linkName: 'Services', link: '/services' },
   { linkName: 'Work', link: '/work' },
+  { linkName: 'About', link: '/about' },
   { linkName: 'Contact', link: '/contact' },
   { linkName: 'FAQs', link: '/faqs' },
 ];
@@ -217,7 +218,7 @@ const Footer = () => {
         </div>
       </div>
       <p className="text-center pb-8 opacity-75">
-        © Codenix 2025 | All Rights Reserved.
+        © Codenix 2026 | All Rights Reserved.
       </p>
     </footer>
   );

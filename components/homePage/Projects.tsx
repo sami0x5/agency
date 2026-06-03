@@ -11,14 +11,14 @@ const allData: {
   {
     name: 'Isolated Multi-Agent System with OpenClaw',
     youtubeId: '2idvKZv4yko',
-    desc: 'A complete walkthrough of setting up an isolated multi-agent system using OpenClaw — from initial configuration to a fully running setup.',
+    desc: 'A complete walkthrough of setting up an isolated multi-agent system using OpenClaw, from initial configuration to a fully running setup.',
     tags: ['OpenClaw', 'Multi-Agent'],
     date: 'TBD',
   },
   {
     name: 'AI Customer Support Agent with OpenClaw',
     youtubeId: '-UaKPJnwGlk',
-    desc: 'We built a fully automated AI customer support agent using OpenClaw — handling queries, responding to customers, and running 24/7 without manual input.',
+    desc: 'We built a fully automated AI customer support agent using OpenClaw. It handles queries, responds to customers, and runs 24/7 without manual input.',
     tags: ['Customer Support', 'OpenClaw'],
     date: 'TBD',
   },

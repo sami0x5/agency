@@ -5,9 +5,9 @@ import Footer from '@/components/Footer';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'Modern Web Development Agency | Codenix',
+  title: 'Codenix | AI Agent Setup and Automation',
   description:
-    'We build modern, results-driven websites for businesses that want more — more leads, more growth, and more impact.',
+    'Codenix installs and configures self-hosted AI agents for businesses. From OpenClaw to Hermes, we handle everything so your system runs 24/7 without you lifting a finger.',
 };
 
 export default function RootLayout({
