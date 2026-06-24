@@ -183,7 +183,7 @@ const ContactForm = () => {
             </div>
             <p className="mt-2 lg:mt-4 text-xl lg:text-2xl font-medium">Sami</p>
             <p className="text-center text-xs lg:text-sm italic text-nowrap opacity-75">
-              Co-founder of <br /> <b>Codenix</b>
+              Founder of <br /> <b>Codenix</b>
             </p>
           </div>
 

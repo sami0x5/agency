@@ -2,7 +2,6 @@
 import React from 'react';
 import Image from 'next/image';
 import ProfilePic from '@/public/profile-pic.jpg';
-import KaviPic from '@/public/kavi.jpeg';
 import { motion } from 'motion/react';
 import ButtonHoverDown from '../Buttons/ButtonHoverDown';
 
@@ -54,8 +53,7 @@ const AboutContent = () => {
           transition={{ duration: 0.7, delay: 0.45, ease: 'linear' }}
           className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24 pb-24 lg:pb-32">
           <p className="text-2xl lg:text-3xl text-white/50 font-light leading-relaxed">
-            A two-person team that sets up AI agents that actually do the
-            work.
+            The person behind the agents that actually do the work.
           </p>
           <div className="text-white/65 text-lg leading-relaxed space-y-5">
             <p>
@@ -67,9 +65,9 @@ const AboutContent = () => {
             <p>
               We do the opposite. We build self-hosted agents that quietly
               handle real work in the background, on your own computer or VPS,
-              connected to the apps you already use. We are a small, hands-on
-              team, which means you work directly with the people building your
-              agent instead of a sales layer in between.
+              connected to the apps you already use. I am hands-on with every
+              setup, which means you work directly with the person building your
+              agent, not a sales layer.
             </p>
           </div>
         </motion.div>
@@ -91,7 +89,7 @@ const AboutContent = () => {
                 Sami
               </h2>
               <span className="mt-4 bg-black border border-white/15 rounded-full px-4 py-1.5 text-sm text-white/50 w-fit tracking-wide">
-                Co-founder &amp; Software Developer
+                Founder
               </span>
               <hr className="border-white/10 my-7" />
               <p className="text-white/65 text-lg leading-relaxed">
@@ -107,56 +105,12 @@ const AboutContent = () => {
             <div className="order-1 lg:order-2 relative h-[320px] lg:h-full min-h-[420px] overflow-hidden">
               <Image
                 src={ProfilePic}
-                alt="Sami, Co-founder and Software Developer at Codenix"
+                alt="Sami, Founder of Codenix"
                 fill
                 className="object-cover object-center transition duration-700 group-hover:scale-105"
                 placeholder="blur"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d]/80 via-transparent to-transparent lg:bg-gradient-to-r lg:from-[#0d0d0d]/60 lg:via-transparent lg:to-transparent" />
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Kavi — image left, text right */}
-        <motion.div
-          initial={{ filter: 'blur(10px)', opacity: 0 }}
-          whileInView={{ filter: 'blur(0px)', opacity: 1 }}
-          transition={{ duration: 0.6, ease: 'linear', delay: 0.1 }}
-          viewport={{ once: true }}
-          className="p-[1px] rounded-2xl bg-gradient-to-bl from-white/20 via-white/5 to-transparent">
-          <div className="grid grid-cols-1 lg:grid-cols-2 bg-[#0d0d0d] rounded-2xl overflow-clip group">
-            <div className="relative h-[320px] lg:h-full min-h-[420px] overflow-hidden">
-              <Image
-                src={KaviPic}
-                alt="Kavi Pabari, Co-founder and Head of Growth at Codenix"
-                fill
-                className="object-cover object-center md:object-top transition duration-700 group-hover:scale-105"
-                placeholder="blur"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0d]/80 via-transparent to-transparent lg:bg-gradient-to-l lg:from-[#0d0d0d]/60 lg:via-transparent lg:to-transparent" />
-            </div>
-            <div className="p-8 lg:p-14 flex flex-col justify-center">
-              <h2 className="text-5xl lg:text-6xl font-semibold tracking-tight bg-gradient-to-r from-gray-300 to-white bg-clip-text text-transparent">
-                Kavi
-                <br />
-                Pabari
-              </h2>
-              <span className="mt-4 bg-black border border-white/15 rounded-full px-4 py-1.5 text-sm text-white/50 w-fit tracking-wide">
-                Co-founder &amp; Head of Growth
-              </span>
-              <hr className="border-white/10 my-7" />
-              <p className="text-white/65 text-lg leading-relaxed">
-                Kavi is the person you will most likely speak with first. He
-                leads growth and client relationships at Codenix, working with
-                you to understand how your business runs and where an AI agent
-                can make the biggest difference, then making sure every project
-                is set up for success before it reaches Sami&apos;s desk. He brings
-                over a decade of senior experience in regulated, data-sensitive
-                industries, which is part of why Codenix is built around
-                self-hosted agents that keep your data yours. If trust and
-                privacy matter to your business, you are talking to someone who
-                takes that seriously.
-              </p>
             </div>
           </div>
         </motion.div>

@@ -79,7 +79,7 @@ export const contactForm = async (formData: formData) => {
     
     await transporter.sendMail({
       from: `"Codenix" <${process.env.EMAIL_USER}>`,
-      to: "sami@codenix.agency, kavi@codenix.agency",
+      to: "sami@codenix.agency",
       subject: `Contact Request - ${name}`,
       replyTo: email,
       html: `<div style=" background-color: #ffffff;">
